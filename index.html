@@ -12,337 +12,60 @@
   padding:0;
 }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#fff8fb;
-  color:#29232b;
-  padding-bottom:80px;
+:root{
+  --bg:#faf9fa;
+  --card:#ffffff;
+  --text:#211d21;
+  --muted:#8d838b;
+  --line:#eee8ec;
+  --accent:#e85b86;
+  --soft:#f8edf2;
+  --dark:#211e21;
 }
 
-nav{
-  height:72px;
-  padding:0 7%;
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  padding-bottom:75px;
+  transition:.25s;
+}
+
+button,input,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.top{
+  height:65px;
+  padding:0 5%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #f4e4eb;
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:30;
+  background:#ffffffee;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
 }
 
 .logo{
-  font-size:29px;
+  color:var(--accent);
+  font-size:25px;
   font-weight:900;
-  color:#ed4b83;
 }
 
-.nav-btn{
+.auth-btn{
   border:0;
-  background:#ffe4ee;
-  color:#df3e76;
-  padding:10px 18px;
-  border-radius:25px;
-  font-weight:bold;
-}
-
-.hero{
-  padding:55px 7% 30px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 85% 10%,#ffd9e7,transparent 28%),
-    radial-gradient(circle at 10% 70%,#e5ddff,transparent 25%);
-}
-
-.badge{
-  display:inline-block;
-  background:#ffe5ef;
-  color:#df3e76;
-  padding:8px 16px;
-  border-radius:30px;
+  background:var(--dark);
+  color:white;
+  padding:9px 16px;
+  border-radius:22px;
   font-size:12px;
-  font-weight:bold;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  font-size:clamp(40px,7vw,70px);
-  line-height:1.1;
-}
-
-.hero h1 span{
-  color:#ed4b83;
-}
-
-.hero p{
-  color:#817681;
-  margin:18px auto 30px;
-  line-height:1.8;
-  max-width:550px;
-}
-
-.section{
-  padding:35px 7%;
-}
-
-.title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:22px;
-}
-
-.title h2{
-  font-size:27px;
-}
-
-.title span{
-  color:#ed4b83;
-  font-size:13px;
-}
-
-.profile-area{
-  max-width:390px;
-  margin:auto;
-}
-
-.profile-card{
-  background:white;
-  border-radius:30px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(80,30,60,.13);
-  position:relative;
-  transition:.35s;
-}
-
-.profile-card.removing{
-  transform:translateX(100px) rotate(8deg);
-  opacity:0;
-}
-
-.photo{
-  height:430px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:130px;
-  background:linear-gradient(145deg,#ffd4e3,#ded6ff);
-}
-
-.profile-info{
-  padding:22px;
-}
-
-.profile-name{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:8px;
-}
-
-.profile-name h3{
-  font-size:24px;
-}
-
-.verified{
-  color:#4388ff;
-  font-size:16px;
-}
-
-.meta{
-  color:#817782;
-  font-size:14px;
-  margin-bottom:13px;
-}
-
-.bio{
-  line-height:1.7;
-  color:#5e5661;
-  font-size:14px;
-}
-
-.tags{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:15px;
-}
-
-.tag{
-  background:#fff0f5;
-  color:#df3e76;
-  padding:7px 11px;
-  border-radius:20px;
-  font-size:11px;
-}
-
-.actions{
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  margin-top:20px;
-}
-
-.action{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  border:0;
-  background:white;
-  box-shadow:0 8px 25px rgba(50,20,40,.1);
-  font-size:24px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.action:hover{
-  transform:scale(1.1);
-}
-
-.pass{
-  color:#777;
-}
-
-.like{
-  color:#ed4b83;
-}
-
-.super{
-  color:#7b61ff;
-}
-
-.empty{
-  text-align:center;
-  background:white;
-  border-radius:25px;
-  padding:40px 20px;
-  display:none;
-  box-shadow:0 10px 35px rgba(50,20,40,.06);
-}
-
-.empty .heart{
-  font-size:50px;
-  margin-bottom:12px;
-}
-
-.empty h3{
-  margin-bottom:8px;
-}
-
-.empty p{
-  color:#8b818b;
-}
-
-.matches{
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-  padding:5px 2px 15px;
-}
-
-.match{
-  min-width:105px;
-  text-align:center;
-}
-
-.match-photo{
-  width:78px;
-  height:78px;
-  border-radius:50%;
-  margin:auto auto 8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px;
-  background:linear-gradient(145deg,#ffd4e3,#ddd4ff);
-  border:3px solid white;
-  box-shadow:0 5px 18px rgba(60,30,50,.1);
-}
-
-.match p{
-  font-size:12px;
-}
-
-.profile-box{
-  background:white;
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 10px 35px rgba(60,30,50,.06);
-}
-
-.profile-header{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.my-avatar{
-  width:75px;
-  height:75px;
-  border-radius:50%;
-  background:linear-gradient(145deg,#ffd4e3,#ded6ff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:40px;
-}
-
-.profile-header h3{
-  font-size:20px;
-  margin-bottom:6px;
-}
-
-.profile-header p{
-  color:#8a808b;
-  font-size:13px;
-}
-
-.edit{
-  margin-top:20px;
-  width:100%;
-  border:0;
-  background:#fff0f5;
-  color:#df3e76;
-  padding:13px;
-  border-radius:15px;
-  font-weight:bold;
-}
-
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:72px;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(15px);
-  border-top:1px solid #f1e4ea;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:50;
-}
-
-.bottom-btn{
-  background:none;
-  border:0;
-  color:#958b96;
-  font-size:11px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:5px;
-  cursor:pointer;
-}
-
-.bottom-btn span{
-  font-size:22px;
-}
-
-.bottom-btn.active{
-  color:#ed4b83;
 }
 
 .page{
@@ -353,57 +76,481 @@ nav{
   display:block;
 }
 
+.hero{
+  text-align:center;
+  padding:55px 6% 35px;
+}
+
+.hero-label{
+  color:#94707d;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:bold;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  font-size:clamp(40px,9vw,68px);
+  line-height:1.08;
+  letter-spacing:-2px;
+}
+
+.hero h1 span{
+  color:var(--accent);
+}
+
+.hero p{
+  max-width:520px;
+  margin:18px auto;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+}
+
+.container{
+  max-width:680px;
+  margin:auto;
+  padding:25px 6%;
+}
+
+.title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:17px;
+}
+
+.title h2{
+  font-size:24px;
+}
+
+.card,
+.box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:0 10px 35px rgba(30,15,25,.05);
+}
+
+.discover-card{
+  overflow:hidden;
+}
+
+.photo{
+  height:360px;
+  background:linear-gradient(145deg,#f2e8ed,#e9e4f3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:105px;
+}
+
+.info{
+  padding:19px;
+}
+
+.name{
+  font-size:22px;
+  font-weight:800;
+}
+
+.meta{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
+}
+
+.bio{
+  color:#625961;
+  line-height:1.8;
+  font-size:13px;
+  margin-top:12px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:13px;
+}
+
+.tag{
+  background:var(--soft);
+  color:#765763;
+  border:1px solid #eee1e7;
+  border-radius:20px;
+  padding:6px 10px;
+  font-size:11px;
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:18px;
+}
+
+.action{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:white;
+  border:1px solid var(--line);
+  box-shadow:0 7px 20px rgba(30,15,25,.08);
+  font-size:20px;
+}
+
+.action.like{
+  color:var(--accent);
+}
+
+.action.star{
+  color:#8065d8;
+}
+
+.action.pass{
+  color:#777;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.match,
+.chat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  cursor:pointer;
+}
+
+.avatar{
+  width:58px;
+  height:58px;
+  flex:none;
+  border-radius:50%;
+  background:linear-gradient(145deg,#f1dce5,#e1dff0);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.center{
+  text-align:center;
+}
+
+.profile-box{
+  padding:22px;
+}
+
+.profile-head{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.profile-head .avatar{
+  width:72px;
+  height:72px;
+  font-size:34px;
+}
+
+.primary{
+  width:100%;
+  margin-top:18px;
+  padding:13px;
+  border:0;
+  border-radius:13px;
+  background:var(--dark);
+  color:white;
+  font-weight:bold;
+}
+
+.settings{
+  margin-top:14px;
+  padding:10px 17px;
+}
+
+.settings-title{
+  font-size:14px;
+  font-weight:bold;
+  padding:8px 0 5px;
+}
+
+.setting{
+  width:100%;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:none;
+  padding:15px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--text);
+  font-size:13px;
+  text-align:right;
+}
+
+.setting:last-child{
+  border-bottom:0;
+}
+
+.setting span:last-child{
+  color:#aaa0a8;
+  font-size:18px;
+}
+
+.setting.danger{
+  color:#bd4d6d;
+}
+
+.bottom{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  z-index:40;
+  background:#ffffffef;
+  backdrop-filter:blur(15px);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-around;
+}
+
+.bottom button{
+  border:0;
+  background:none;
+  color:#958b94;
+  font-size:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+}
+
+.bottom button span{
+  font-size:20px;
+}
+
+.bottom button.active{
+  color:var(--accent);
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#160d1380;
+  z-index:100;
+  display:none;
+  align-items:flex-end;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.sheet{
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--card);
+  border-radius:25px 25px 0 0;
+  padding:25px;
+  margin:auto auto 0;
+}
+
+.close{
+  float:left;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:#f2edf0;
+}
+
+.form{
+  display:grid;
+  gap:12px;
+  margin-top:20px;
+}
+
+.input,
+textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+  background:white;
+  color:#222;
+}
+
+.input:focus,
+textarea:focus{
+  border-color:var(--accent);
+}
+
+.row{
+  display:flex;
+  gap:10px;
+}
+
+.row>*{
+  flex:1;
+}
+
+.chatbox{
+  height:350px;
+  overflow:auto;
+  background:#faf6f8;
+  border-radius:17px;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  margin-top:18px;
+}
+
+.message{
+  max-width:78%;
+  padding:10px 13px;
+  border-radius:16px;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.message.mine{
+  align-self:flex-start;
+  background:var(--accent);
+  color:white;
+  border-bottom-left-radius:5px;
+}
+
+.message.theirs{
+  align-self:flex-end;
+  background:#ebe6e9;
+  color:#292329;
+  border-bottom-right-radius:5px;
+}
+
 .toast{
   position:fixed;
-  left:50%;
+  z-index:200;
   bottom:90px;
-  transform:translateX(-50%) translateY(20px);
-  background:#29232b;
-  color:white;
-  padding:13px 20px;
-  border-radius:30px;
+  left:50%;
+  transform:translate(-50%,20px);
   opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:100;
-  font-size:13px;
+  background:#292329;
+  color:white;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:12px;
+  transition:.25s;
 }
 
 .toast.show{
   opacity:1;
-  transform:translateX(-50%) translateY(0);
+  transform:translate(-50%,0);
 }
 
-@media(max-width:600px){
-  nav{
-    padding:0 5%;
-  }
+/* DARK MODE */
 
-  .section{
-    padding:30px 5%;
+body.dark{
+  --bg:#171517;
+  --card:#211e21;
+  --text:#f5f1f3;
+  --muted:#aaa0a8;
+  --line:#373237;
+  --soft:#30292d;
+}
+
+body.dark .top,
+body.dark .bottom{
+  background:#211e21ee;
+}
+
+body.dark .photo{
+  background:linear-gradient(145deg,#30282c,#29272f);
+}
+
+body.dark .action{
+  background:#211e21;
+}
+
+body.dark .input,
+body.dark textarea{
+  background:#211e21;
+  color:white;
+}
+
+body.dark .chatbox{
+  background:#191619;
+}
+
+body.dark .message.theirs{
+  background:#322d31;
+  color:white;
+}
+
+@media(max-width:520px){
+
+  .grid{
+    grid-template-columns:1fr;
   }
 
   .photo{
-    height:390px;
+    height:350px;
   }
+
+  .hero{
+    padding-top:45px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">Lumi ♡</div>
-  <button class="nav-btn" onclick="showToast('به Lumi خوش اومدی 💗')">
+<header class="top">
+
+  <div class="logo">
+    Lumi ♡
+  </div>
+
+  <button class="auth-btn"
+          id="authBtn"
+          onclick="handleAuth()">
     ورود
   </button>
-</nav>
+
+</header>
+
 
 <!-- HOME -->
-<div class="page active" id="home">
 
-  <section class="hero">
-    <span class="badge">♡ FIND YOUR CONNECTION</span>
+<section id="home" class="page active">
+
+  <div class="hero">
+
+    <div class="hero-label">
+      FIND YOUR CONNECTION
+    </div>
 
     <h1>
       شاید اینجا
@@ -412,303 +559,1504 @@ nav{
     </h1>
 
     <p>
-      آدم‌های جدید رو کشف کن، علایق مشترک پیدا کن
-      و ارتباط‌های تازه بساز.
+      آدم‌های جدید رو کشف کن،
+      ارتباط بساز و گفت‌وگو رو شروع کن.
     </p>
-  </section>
 
-  <section class="section">
+  </div>
+
+  <div class="container">
 
     <div class="title">
-      <h2>کشف آدم‌ها 🔥</h2>
-      <span>Discover</span>
-    </div>
 
-    <div class="profile-area">
+      <h2>
+        کشف
+      </h2>
 
-      <div class="profile-card" id="card">
-
-        <div class="photo" id="photo">👩🏻</div>
-
-        <div class="profile-info">
-
-          <div class="profile-name">
-            <h3 id="name">سارا، ۲۴</h3>
-            <span class="verified">✓</span>
-          </div>
-
-          <div class="meta" id="meta">
-            📍 تهران · ۳ کیلومتر
-          </div>
-
-          <div class="bio" id="bio">
-            عاشق موسیقی، سفر و کافه‌های دنج.
-            دنبال آشنایی خوب و گفت‌وگوی جذابم.
-          </div>
-
-          <div class="tags" id="tags">
-            <span class="tag">موسیقی</span>
-            <span class="tag">سفر</span>
-            <span class="tag">کافه</span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button class="action pass" onclick="passProfile()">✕</button>
-        <button class="action super" onclick="superLike()">★</button>
-        <button class="action like" onclick="likeProfile()">♥</button>
-      </div>
-
-      <div class="empty" id="empty">
-        <div class="heart">💗</div>
-        <h3>فعلاً همین بود!</h3>
-        <p>بعداً دوباره سر بزن تا آدم‌های جدید ببینی.</p>
-      </div>
+      <span class="muted" id="counter"></span>
 
     </div>
 
-  </section>
+    <div id="discover"></div>
 
-</div>
+  </div>
+
+</section>
+
 
 <!-- MATCHES -->
-<div class="page" id="matches">
 
-  <section class="section">
+<section id="matches" class="page">
+
+  <div class="container">
 
     <div class="title">
-      <h2>Match های تو 💞</h2>
-      <span id="matchCount">۰ نفر</span>
-    </div>
 
-    <div class="matches" id="matchesList">
+      <h2>
+        Match
+      </h2>
 
-      <div class="match">
-        <div class="match-photo">👩🏻</div>
-        <p>سارا</p>
-      </div>
-
-      <div class="match">
-        <div class="match-photo">👨🏻</div>
-        <p>آرین</p>
-      </div>
+      <span class="muted">
+        ارتباط‌های دوطرفه
+      </span>
 
     </div>
 
-  </section>
+    <div id="matchesList"
+         class="grid">
+    </div>
 
-</div>
+  </div>
+
+</section>
+
+
+<!-- CHATS -->
+
+<section id="chats" class="page">
+
+  <div class="container">
+
+    <div class="title">
+
+      <h2>
+        چت‌ها
+      </h2>
+
+    </div>
+
+    <div id="chatList"></div>
+
+  </div>
+
+</section>
+
 
 <!-- PROFILE -->
-<div class="page" id="profile">
 
-  <section class="section">
+<section id="profile" class="page">
+
+  <div class="container">
 
     <div class="title">
-      <h2>پروفایل من 👤</h2>
+
+      <h2>
+        پروفایل
+      </h2>
+
     </div>
 
-    <div class="profile-box">
+    <div id="myProfile"></div>
 
-      <div class="profile-header">
 
-        <div class="my-avatar">😎</div>
+    <!-- SETTINGS INSIDE PROFILE -->
 
-        <div>
-          <h3>پروفایل شما</h3>
-          <p>هنوز اطلاعاتت کامل نشده.</p>
-        </div>
+    <div class="box settings">
 
+      <div class="settings-title">
+        تنظیمات
       </div>
 
-      <button class="edit" onclick="showToast('صفحه ویرایش پروفایل به‌زودی اضافه میشه ✨')">
-        ویرایش پروفایل
+      <button class="setting"
+              onclick="openEdit()">
+
+        <span>
+          ویرایش پروفایل
+        </span>
+
+        <span>
+          ›
+        </span>
+
+      </button>
+
+
+      <button class="setting"
+              onclick="toggleDark()">
+
+        <span>
+          ظاهر
+        </span>
+
+        <span>
+          ◐
+        </span>
+
+      </button>
+
+
+      <button class="setting"
+              onclick="toast('اعلان‌ها فعال هستند')">
+
+        <span>
+          اعلان‌ها
+        </span>
+
+        <span>
+          ›
+        </span>
+
+      </button>
+
+
+      <button class="setting"
+              onclick="toast('تنظیمات حریم خصوصی')">
+
+        <span>
+          حریم خصوصی
+        </span>
+
+        <span>
+          ›
+        </span>
+
+      </button>
+
+
+      <button class="setting"
+              onclick="toast('راهنمای Lumi')">
+
+        <span>
+          راهنما
+        </span>
+
+        <span>
+          ›
+        </span>
+
+      </button>
+
+
+      <button class="setting danger"
+              onclick="logout()">
+
+        <span>
+          خروج از حساب
+        </span>
+
+        <span>
+          ↗
+        </span>
+
       </button>
 
     </div>
 
-  </section>
+  </div>
 
-</div>
+</section>
+
 
 <!-- BOTTOM NAV -->
-<div class="bottom-nav">
 
-  <button class="bottom-btn active" onclick="openPage('home',this)">
-    <span>🔥</span>
+<nav class="bottom">
+
+  <button class="active"
+          onclick="nav('home',this)">
+
+    <span>
+      ⌕
+    </span>
+
     کشف
+
   </button>
 
-  <button class="bottom-btn" onclick="openPage('matches',this)">
-    <span>💞</span>
+
+  <button onclick="nav('matches',this)">
+
+    <span>
+      ♡
+    </span>
+
     Match
+
   </button>
 
-  <button class="bottom-btn" onclick="showToast('بخش چت به‌زودی اضافه میشه 💬')">
-    <span>💬</span>
+
+  <button onclick="nav('chats',this)">
+
+    <span>
+      ◌
+    </span>
+
     چت
+
   </button>
 
-  <button class="bottom-btn" onclick="openPage('profile',this)">
-    <span>👤</span>
+
+  <button onclick="nav('profile',this)">
+
+    <span>
+      ◯
+    </span>
+
     پروفایل
+
   </button>
+
+</nav>
+
+
+<!-- MODAL -->
+
+<div class="modal"
+     id="modal">
+
+  <div class="sheet">
+
+    <button class="close"
+            onclick="closeModal()">
+
+      ×
+
+    </button>
+
+    <div id="modalBody"></div>
+
+  </div>
 
 </div>
 
-<div class="toast" id="toast"></div>
+
+<div class="toast"
+     id="toast">
+</div>
+
 
 <script>
 
-const profiles = [
+/* =========================
+   DATA
+========================= */
+
+const people = [
 
   {
-    name:"سارا، ۲۴",
-    photo:"👩🏻",
-    meta:"📍 تهران · ۳ کیلومتر",
+    name:"سارا",
+    age:24,
+    city:"تهران",
+    emoji:"👩🏻",
     bio:"عاشق موسیقی، سفر و کافه‌های دنج. دنبال آشنایی خوب و گفت‌وگوی جذابم.",
     tags:["موسیقی","سفر","کافه"]
   },
 
   {
-    name:"آرین، ۲۶",
-    photo:"👨🏻",
-    meta:"📍 اصفهان · ۵ کیلومتر",
+    name:"آرین",
+    age:26,
+    city:"اصفهان",
+    emoji:"👨🏻",
     bio:"فیلم، عکاسی و کشف جاهای جدید. همیشه برای یک گفت‌وگوی خوب آماده‌ام.",
     tags:["فیلم","عکاسی","کافه"]
   },
 
   {
-    name:"نیلا، ۲۳",
-    photo:"👩🏼",
-    meta:"📍 شیراز · ۲ کیلومتر",
+    name:"نیلا",
+    age:23,
+    city:"شیراز",
+    emoji:"👩🏼",
     bio:"کتاب، هنر و موسیقی. آدم‌های صمیمی و خوش‌صحبت رو دوست دارم.",
     tags:["کتاب","هنر","موسیقی"]
   },
 
   {
-    name:"پارسا، ۲۸",
-    photo:"👨🏼",
-    meta:"📍 مشهد · ۷ کیلومتر",
+    name:"پارسا",
+    age:28,
+    city:"مشهد",
+    emoji:"👨🏼",
     bio:"ورزش، سفر و تکنولوژی. دنبال یک ارتباط واقعی و محترمانه هستم.",
     tags:["ورزش","سفر","تکنولوژی"]
   }
 
 ];
 
-let current = 0;
-let matches = 2;
 
-function loadProfile(){
+/* =========================
+   STATE
+========================= */
 
-  if(current >= profiles.length){
+let state =
+JSON.parse(
+  localStorage.getItem("lumiState")
+  ||
+  '{"i":0,"likes":[],"chats":{},"user":null}'
+);
 
-    document.getElementById("card").style.display="none";
-    document.querySelector(".actions").style.display="none";
-    document.getElementById("empty").style.display="block";
+
+/* =========================
+   SAVE
+========================= */
+
+function save(){
+
+  localStorage.setItem(
+    "lumiState",
+    JSON.stringify(state)
+  );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function toast(message){
+
+  const t =
+    document.getElementById("toast");
+
+  t.innerText = message;
+
+  t.classList.add("show");
+
+  setTimeout(
+    ()=>{
+      t.classList.remove("show");
+    },
+    2000
+  );
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function nav(id,button){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      page =>
+      page.classList.remove("active")
+    );
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  document
+    .querySelectorAll(".bottom button")
+    .forEach(
+      btn =>
+      btn.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  if(id==="home")
+    renderDiscover();
+
+  if(id==="matches")
+    renderMatches();
+
+  if(id==="chats")
+    renderChats();
+
+  if(id==="profile")
+    renderProfile();
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   DISCOVER
+========================= */
+
+function renderDiscover(){
+
+  const box =
+    document.getElementById("discover");
+
+  const counter =
+    document.getElementById("counter");
+
+
+  if(state.i >= people.length){
+
+    counter.innerText =
+      people.length +
+      " / " +
+      people.length;
+
+    box.innerHTML = `
+
+      <div class="box center"
+           style="padding:40px">
+
+        <div style="font-size:48px">
+          ♡
+        </div>
+
+        <h3 style="margin-top:12px">
+          فعلاً همین بود
+        </h3>
+
+        <p class="muted">
+          بعداً دوباره سر بزن.
+        </p>
+
+      </div>
+
+    `;
 
     return;
+
   }
 
-  const p = profiles[current];
 
-  document.getElementById("name").innerText=p.name;
-  document.getElementById("photo").innerText=p.photo;
-  document.getElementById("meta").innerText=p.meta;
-  document.getElementById("bio").innerText=p.bio;
+  const p =
+    people[state.i];
 
-  document.getElementById("tags").innerHTML =
-    p.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+
+  counter.innerText =
+    (state.i + 1) +
+    " / " +
+    people.length;
+
+
+  box.innerHTML = `
+
+    <div class="card discover-card">
+
+      <div class="photo">
+        ${p.emoji}
+      </div>
+
+      <div class="info">
+
+        <div class="name">
+          ${p.name}، ${p.age}
+        </div>
+
+        <div class="meta">
+          📍 ${p.city}
+        </div>
+
+        <div class="bio">
+          ${p.bio}
+        </div>
+
+        <div class="tags">
+
+          ${
+            p.tags
+              .map(
+                tag =>
+                `<span class="tag">${tag}</span>`
+              )
+              .join("")
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="action pass"
+        onclick="pass()">
+
+        ×
+
+      </button>
+
+
+      <button
+        class="action star"
+        onclick="superLike()">
+
+        ★
+
+      </button>
+
+
+      <button
+        class="action like"
+        onclick="like()">
+
+        ♥
+
+      </button>
+
+    </div>
+
+  `;
+
 }
 
-function nextProfile(){
 
-  const card=document.getElementById("card");
+/* =========================
+   PASS
+========================= */
 
-  card.classList.add("removing");
+function pass(){
 
-  setTimeout(()=>{
+  toast("پروفایل بعدی");
 
-    card.classList.remove("removing");
+  state.i++;
 
-    current++;
+  save();
 
-    loadProfile();
-
-  },350);
-}
-
-function passProfile(){
-
-  showToast("پروفایل بعدی 👋");
-  nextProfile();
+  renderDiscover();
 
 }
 
-function likeProfile(){
 
-  matches++;
+/* =========================
+   LIKE
+========================= */
 
-  document.getElementById("matchCount").innerText =
-    matches + " نفر";
+function like(){
 
-  showToast("یه Like فرستادی ❤️");
+  const p =
+    people[state.i];
 
-  nextProfile();
+  if(
+    !state.likes
+      .includes(p.name)
+  ){
+
+    state.likes.push(p.name);
+
+  }
+
+  save();
+
+  toast("Like فرستاده شد ♥");
+
+  state.i++;
+
+  save();
+
+  renderDiscover();
 
 }
+
+
+/* =========================
+   SUPER LIKE
+========================= */
 
 function superLike(){
 
-  matches++;
+  const p =
+    people[state.i];
 
-  document.getElementById("matchCount").innerText =
-    matches + " نفر";
+  if(
+    !state.likes
+      .includes(p.name)
+  ){
 
-  showToast("Super Like فرستاده شد ⭐");
+    state.likes.push(p.name);
 
-  nextProfile();
+  }
 
-}
+  save();
 
-function openPage(id,btn){
+  toast("Super Like فرستاده شد ★");
 
-  document.querySelectorAll(".page").forEach(page=>{
-    page.classList.remove("active");
-  });
+  state.i++;
 
-  document.getElementById(id).classList.add("active");
+  save();
 
-  document.querySelectorAll(".bottom-btn").forEach(b=>{
-    b.classList.remove("active");
-  });
-
-  if(btn) btn.classList.add("active");
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-function showToast(message){
-
-  const toast=document.getElementById("toast");
-
-  toast.innerText=message;
-
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
+  renderDiscover();
 
 }
 
-loadProfile();
+
+/* =========================
+   MATCHES
+========================= */
+
+function renderMatches(){
+
+  const box =
+    document.getElementById(
+      "matchesList"
+    );
+
+
+  const matches =
+    people.filter(
+      p =>
+      state.likes
+        .includes(p.name)
+    );
+
+
+  if(!matches.length){
+
+    box.innerHTML = `
+
+      <div class="box center"
+           style="padding:40px;grid-column:1/-1">
+
+        <div style="font-size:45px">
+          ♡
+        </div>
+
+        <p>
+          هنوز Match نداری.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    matches
+      .map(
+        p => `
+
+        <div
+          class="match"
+          onclick="openChat('${p.name}')">
+
+          <div class="avatar">
+            ${p.emoji}
+          </div>
+
+          <div>
+
+            <b>
+              ${p.name}
+            </b>
+
+            <div class="muted">
+              Match شده
+            </div>
+
+          </div>
+
+        </div>
+
+        `
+      )
+      .join("");
+
+}
+
+
+/* =========================
+   CHAT LIST
+========================= */
+
+function renderChats(){
+
+  const box =
+    document.getElementById(
+      "chatList"
+    );
+
+
+  const names =
+    Object.keys(state.chats);
+
+
+  if(!names.length){
+
+    box.innerHTML = `
+
+      <div class="box center"
+           style="padding:40px">
+
+        <div style="font-size:40px">
+          ◌
+        </div>
+
+        <p>
+          هنوز گفتگویی نداری.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    names
+      .map(
+        name => {
+
+          const p =
+            people.find(
+              x =>
+              x.name === name
+            )
+            ||
+            {
+              emoji:"🙂"
+            };
+
+
+          const messages =
+            state.chats[name];
+
+
+          const last =
+            messages[
+              messages.length - 1
+            ];
+
+
+          return `
+
+            <div
+              class="chat"
+              style="margin-bottom:10px"
+              onclick="openChat('${name}')">
+
+              <div class="avatar">
+                ${p.emoji}
+              </div>
+
+              <div>
+
+                <b>
+                  ${name}
+                </b>
+
+                <div class="muted">
+                  ${
+                    last
+                    ? last.text
+                    : "شروع گفتگو"
+                  }
+                </div>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+
+/* =========================
+   OPEN CHAT
+========================= */
+
+function openChat(name){
+
+  const p =
+    people.find(
+      x =>
+      x.name === name
+    )
+    ||
+    {
+      emoji:"🙂"
+    };
+
+
+  if(!state.chats[name]){
+
+    state.chats[name] = [
+
+      {
+        mine:false,
+        text:"سلام 👋 خوش اومدی به Lumi!"
+      }
+
+    ];
+
+    save();
+
+  }
+
+
+  const messages =
+    state.chats[name];
+
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML = `
+
+    <h2>
+      ${p.emoji}
+      ${name}
+    </h2>
+
+    <div
+      class="chatbox"
+      id="chatbox">
+
+      ${
+        messages
+          .map(
+            m => `
+
+            <div
+              class="message
+              ${m.mine
+                ? "mine"
+                : "theirs"}">
+
+              ${m.text}
+
+            </div>
+
+            `
+          )
+          .join("")
+      }
+
+    </div>
+
+
+    <form
+      class="row"
+      style="margin-top:12px"
+      onsubmit="sendMessage(event,'${name}')">
+
+      <input
+        id="messageInput"
+        class="input"
+        placeholder="پیامت رو بنویس..."
+        autocomplete="off">
+
+      <button
+        class="primary"
+        style="margin:0;width:auto;padding:12px 20px">
+
+        ارسال
+
+      </button>
+
+    </form>
+
+  `;
+
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+
+  setTimeout(
+    ()=>{
+      const chat =
+        document.getElementById(
+          "chatbox"
+        );
+
+      if(chat)
+        chat.scrollTop =
+          chat.scrollHeight;
+    },
+    50
+  );
+
+}
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+function sendMessage(
+  event,
+  name
+){
+
+  event.preventDefault();
+
+
+  const input =
+    document.getElementById(
+      "messageInput"
+    );
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text)
+    return;
+
+
+  state.chats[name].push({
+
+    mine:true,
+
+    text:text
+
+  });
+
+
+  save();
+
+  openChat(name);
+
+  renderChats();
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function renderProfile(){
+
+  const box =
+    document.getElementById(
+      "myProfile"
+    );
+
+
+  if(!state.user){
+
+    box.innerHTML = `
+
+      <div class="box center"
+           style="padding:35px">
+
+        <div style="font-size:45px">
+          ◯
+        </div>
+
+        <h3 style="margin-top:12px">
+          هنوز حساب نداری
+        </h3>
+
+        <p class="muted">
+          برای ساخت پروفایل ثبت‌نام کن.
+        </p>
+
+        <button
+          class="primary"
+          onclick="openAuth()">
+
+          ثبت‌نام
+
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const u =
+    state.user;
+
+
+  box.innerHTML = `
+
+    <div class="box profile-box">
+
+      <div class="profile-head">
+
+        <div class="avatar">
+          ${u.emoji || "◯"}
+        </div>
+
+        <div>
+
+          <h3>
+            ${u.name}، ${u.age}
+          </h3>
+
+          <p class="muted">
+            📍 ${u.city}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="bio">
+
+        ${
+          u.bio ||
+          "هنوز چیزی درباره خودت ننوشتی."
+        }
+
+      </div>
+
+
+      <div class="tags">
+
+        ${
+          (u.tags || [])
+          .map(
+            x =>
+            `<span class="tag">${x}</span>`
+          )
+          .join("")
+        }
+
+      </div>
+
+
+      <button
+        class="primary"
+        onclick="openEdit()">
+
+        ویرایش پروفایل
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   AUTH
+========================= */
+
+function handleAuth(){
+
+  if(state.user){
+
+    nav(
+      "profile",
+      document.querySelectorAll(
+        ".bottom button"
+      )[3]
+    );
+
+  }
+  else{
+
+    openAuth();
+
+  }
+
+}
+
+
+function openAuth(){
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML = `
+
+    <h2>
+      ثبت‌نام در Lumi
+    </h2>
+
+    <p class="muted">
+      برای نسخه فعلی، اطلاعات فقط روی
+      همین دستگاه ذخیره می‌شود.
+    </p>
+
+
+    <div class="form">
+
+      <input
+        id="name"
+        class="input"
+        placeholder="نام">
+
+
+      <div class="row">
+
+        <input
+          id="age"
+          class="input"
+          type="number"
+          placeholder="سن">
+
+
+        <input
+          id="city"
+          class="input"
+          placeholder="شهر">
+
+      </div>
+
+
+      <input
+        id="email"
+        class="input"
+        type="email"
+        placeholder="ایمیل">
+
+
+      <input
+        id="password"
+        class="input"
+        type="password"
+        placeholder="رمز عبور">
+
+
+      <button
+        class="primary"
+        onclick="signup()">
+
+        ساخت حساب
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+}
+
+
+/* =========================
+   SIGN UP
+========================= */
+
+function signup(){
+
+  const name =
+    document
+      .getElementById("name")
+      .value.trim();
+
+
+  const age =
+    Number(
+      document
+        .getElementById("age")
+        .value
+    );
+
+
+  const city =
+    document
+      .getElementById("city")
+      .value.trim();
+
+
+  const email =
+    document
+      .getElementById("email")
+      .value.trim();
+
+
+  const password =
+    document
+      .getElementById("password")
+      .value;
+
+
+  if(
+    !name ||
+    !city ||
+    !email ||
+    !password ||
+    age < 18
+  ){
+
+    toast(
+      "اطلاعات رو کامل وارد کن؛ سن باید ۱۸+ باشه."
+    );
+
+    return;
+
+  }
+
+
+  state.user = {
+
+    name:name,
+
+    age:age,
+
+    city:city,
+
+    email:email,
+
+    password:password,
+
+    bio:"",
+
+    tags:[],
+
+    emoji:"😎"
+
+  };
+
+
+  save();
+
+
+  closeModal();
+
+  updateAuthButton();
+
+  renderProfile();
+
+
+  toast(
+    "حساب ساخته شد ♥"
+  );
+
+}
+
+
+/* =========================
+   EDIT PROFILE
+========================= */
+
+function openEdit(){
+
+  if(!state.user){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  const u =
+    state.user;
+
+
+  document.getElementById(
+    "modalBody"
+  ).innerHTML = `
+
+    <h2>
+      ویرایش پروفایل
+    </h2>
+
+
+    <div class="form">
+
+      <input
+        id="editName"
+        class="input"
+        value="${u.name}"
+        placeholder="نام">
+
+
+      <input
+        id="editCity"
+        class="input"
+        value="${u.city}"
+        placeholder="شهر">
+
+
+      <textarea
+        id="editBio"
+        rows="4"
+        placeholder="درباره خودت..."
+      >${u.bio || ""}</textarea>
+
+
+      <input
+        id="editTags"
+        class="input"
+        value="${(u.tags || []).join(", ")}"
+        placeholder="علایق: موسیقی، سفر، فیلم">
+
+
+      <button
+        class="primary"
+        onclick="saveProfile()">
+
+        ذخیره تغییرات
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+}
+
+
+/* =========================
+   SAVE PROFILE
+========================= */
+
+function saveProfile(){
+
+  state.user.name =
+    document
+      .getElementById("editName")
+      .value.trim();
+
+
+  state.user.city =
+    document
+      .getElementById("editCity")
+      .value.trim();
+
+
+  state.user.bio =
+    document
+      .getElementById("editBio")
+      .value.trim();
+
+
+  state.user.tags =
+    document
+      .getElementById("editTags")
+      .value
+      .split(",")
+      .map(x=>x.trim())
+      .filter(Boolean);
+
+
+  save();
+
+  closeModal();
+
+  renderProfile();
+
+  toast(
+    "پروفایل ذخیره شد"
+  );
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDark(){
+
+  document.body.classList.toggle(
+    "dark"
+  );
+
+
+  localStorage.setItem(
+    "lumiDark",
+    document.body.classList.contains(
+      "dark"
+    )
+  );
+
+
+  toast(
+    document.body.classList.contains(
+      "dark"
+    )
+    ? "حالت تاریک"
+    : "حالت روشن"
+  );
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+  state.user = null;
+
+  save();
+
+  updateAuthButton();
+
+  renderProfile();
+
+  toast(
+    "از حساب خارج شدی"
+  );
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function closeModal(){
+
+  document
+    .getElementById("modal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   AUTH BUTTON
+========================= */
+
+function updateAuthButton(){
+
+  document.getElementById(
+    "authBtn"
+  ).innerText =
+    state.user
+    ? "حساب من"
+    : "ورود";
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+if(
+  localStorage.getItem(
+    "lumiDark"
+  ) === "true"
+){
+
+  document.body.classList.add(
+    "dark"
+  );
+
+}
+
+
+updateAuthButton();
+
+renderDiscover();
+
+renderMatches();
+
+renderChats();
+
+renderProfile();
 
 </script>
 
