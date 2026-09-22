@@ -1,324 +1,408 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lumi — آشنایی متفاوت</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumi — آشنایی جدید</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff8fb;
-      color: #24202a;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#fff8fb;
+  color:#29232b;
+  padding-bottom:80px;
+}
 
-    nav {
-      height: 76px;
-      padding: 0 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255,255,255,.85);
-      backdrop-filter: blur(18px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #f5e9ef;
-    }
+nav{
+  height:72px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #f4e4eb;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
 
-    .logo {
-      font-size: 29px;
-      font-weight: 900;
-      color: #ed4b83;
-      letter-spacing: 1px;
-    }
+.logo{
+  font-size:29px;
+  font-weight:900;
+  color:#ed4b83;
+}
 
-    .menu {
-      display: flex;
-      gap: 25px;
-    }
+.nav-btn{
+  border:0;
+  background:#ffe4ee;
+  color:#df3e76;
+  padding:10px 18px;
+  border-radius:25px;
+  font-weight:bold;
+}
 
-    .menu a {
-      text-decoration: none;
-      color: #625b66;
-      font-size: 14px;
-    }
+.hero{
+  padding:55px 7% 30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 85% 10%,#ffd9e7,transparent 28%),
+    radial-gradient(circle at 10% 70%,#e5ddff,transparent 25%);
+}
 
-    .join {
-      background: #ed4b83;
-      color: white !important;
-      padding: 11px 20px;
-      border-radius: 30px;
-    }
+.badge{
+  display:inline-block;
+  background:#ffe5ef;
+  color:#df3e76;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
 
-    .hero {
-      min-height: 650px;
-      padding: 70px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
+.hero h1{
+  font-size:clamp(40px,7vw,70px);
+  line-height:1.1;
+}
 
-      background:
-        radial-gradient(circle at 85% 20%, #ffd8e7 0, transparent 28%),
-        radial-gradient(circle at 10% 80%, #e3dcff 0, transparent 25%),
-        #fff8fb;
-    }
+.hero h1 span{
+  color:#ed4b83;
+}
 
-    .hero-text {
-      max-width: 590px;
-    }
+.hero p{
+  color:#817681;
+  margin:18px auto 30px;
+  line-height:1.8;
+  max-width:550px;
+}
 
-    .badge {
-      display: inline-block;
-      background: #ffe5ef;
-      color: #df3e76;
-      padding: 9px 17px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 22px;
-    }
+.section{
+  padding:35px 7%;
+}
 
-    h1 {
-      font-size: clamp(45px, 7vw, 78px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-    }
+.title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:22px;
+}
 
-    h1 span {
-      color: #ed4b83;
-    }
+.title h2{
+  font-size:27px;
+}
 
-    .hero-text > p {
-      color: #746d78;
-      font-size: 18px;
-      line-height: 2;
-      margin-bottom: 30px;
-    }
+.title span{
+  color:#ed4b83;
+  font-size:13px;
+}
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.profile-area{
+  max-width:390px;
+  margin:auto;
+}
 
-    button {
-      border: none;
-      padding: 15px 28px;
-      border-radius: 15px;
-      font-size: 15px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.profile-card{
+  background:white;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(80,30,60,.13);
+  position:relative;
+  transition:.35s;
+}
 
-    .primary {
-      background: #ed4b83;
-      color: white;
-      box-shadow: 0 12px 30px rgba(237,75,131,.25);
-    }
+.profile-card.removing{
+  transform:translateX(100px) rotate(8deg);
+  opacity:0;
+}
 
-    .secondary {
-      background: white;
-      color: #ed4b83;
-      border: 1px solid #f4bfd2;
-    }
+.photo{
+  height:430px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:130px;
+  background:linear-gradient(145deg,#ffd4e3,#ded6ff);
+}
 
-    .profiles {
-      width: 350px;
-      height: 450px;
-      position: relative;
-    }
+.profile-info{
+  padding:22px;
+}
 
-    .profile {
-      position: absolute;
-      width: 285px;
-      height: 380px;
-      border-radius: 30px;
-      background: white;
-      box-shadow: 0 25px 60px rgba(60,30,50,.15);
-      overflow: hidden;
-    }
+.profile-name{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
 
-    .profile.one {
-      right: 0;
-      top: 15px;
-      transform: rotate(5deg);
-    }
+.profile-name h3{
+  font-size:24px;
+}
 
-    .profile.two {
-      right: 55px;
-      top: 35px;
-      transform: rotate(-6deg);
-    }
+.verified{
+  color:#4388ff;
+  font-size:16px;
+}
 
-    .avatar {
-      height: 245px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 90px;
-      background: linear-gradient(145deg,#ffd7e5,#e8ddff);
-    }
+.meta{
+  color:#817782;
+  font-size:14px;
+  margin-bottom:13px;
+}
 
-    .info {
-      padding: 18px;
-    }
+.bio{
+  line-height:1.7;
+  color:#5e5661;
+  font-size:14px;
+}
 
-    .info h3 {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
+.tags{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
 
-    .info p {
-      color: #8a828d;
-      font-size: 13px;
-    }
+.tag{
+  background:#fff0f5;
+  color:#df3e76;
+  padding:7px 11px;
+  border-radius:20px;
+  font-size:11px;
+}
 
-    .online {
-      color: #35b878 !important;
-      margin-top: 8px;
-    }
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-top:20px;
+}
 
-    .section-title {
-      text-align: center;
-      padding: 70px 20px 35px;
-    }
+.action{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:0;
+  background:white;
+  box-shadow:0 8px 25px rgba(50,20,40,.1);
+  font-size:24px;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    .section-title h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
+.action:hover{
+  transform:scale(1.1);
+}
 
-    .section-title p {
-      color: #817985;
-    }
+.pass{
+  color:#777;
+}
 
-    .features {
-      padding: 20px 7% 80px;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 22px;
-    }
+.like{
+  color:#ed4b83;
+}
 
-    .feature {
-      background: white;
-      padding: 32px;
-      border-radius: 25px;
-      box-shadow: 0 12px 35px rgba(60,30,50,.06);
-      text-align: center;
-    }
+.super{
+  color:#7b61ff;
+}
 
-    .icon {
-      font-size: 38px;
-      margin-bottom: 18px;
-    }
+.empty{
+  text-align:center;
+  background:white;
+  border-radius:25px;
+  padding:40px 20px;
+  display:none;
+  box-shadow:0 10px 35px rgba(50,20,40,.06);
+}
 
-    .feature h3 {
-      margin-bottom: 10px;
-    }
+.empty .heart{
+  font-size:50px;
+  margin-bottom:12px;
+}
 
-    .feature p {
-      color: #807782;
-      line-height: 1.8;
-      font-size: 14px;
-    }
+.empty h3{
+  margin-bottom:8px;
+}
 
-    .cta {
-      margin: 20px 7% 70px;
-      padding: 55px 30px;
-      text-align: center;
-      border-radius: 30px;
-      background: linear-gradient(135deg,#ed4b83,#9c6cff);
-      color: white;
-    }
+.empty p{
+  color:#8b818b;
+}
 
-    .cta h2 {
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
+.matches{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  padding:5px 2px 15px;
+}
 
-    .cta p {
-      opacity: .9;
-      margin-bottom: 25px;
-    }
+.match{
+  min-width:105px;
+  text-align:center;
+}
 
-    .cta button {
-      background: white;
-      color: #ed4b83;
-    }
+.match-photo{
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  margin:auto auto 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  background:linear-gradient(145deg,#ffd4e3,#ddd4ff);
+  border:3px solid white;
+  box-shadow:0 5px 18px rgba(60,30,50,.1);
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #aaa0aa;
-      font-size: 13px;
-    }
+.match p{
+  font-size:12px;
+}
 
-    @media (max-width: 800px) {
+.profile-box{
+  background:white;
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 10px 35px rgba(60,30,50,.06);
+}
 
-      .menu {
-        display: none;
-      }
+.profile-header{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
 
-      nav {
-        padding: 0 5%;
-      }
+.my-avatar{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#ffd4e3,#ded6ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+}
 
-      .hero {
-        padding: 55px 6%;
-        flex-direction: column;
-        text-align: center;
-      }
+.profile-header h3{
+  font-size:20px;
+  margin-bottom:6px;
+}
 
-      .hero-text {
-        max-width: 100%;
-      }
+.profile-header p{
+  color:#8a808b;
+  font-size:13px;
+}
 
-      .buttons {
-        justify-content: center;
-      }
+.edit{
+  margin-top:20px;
+  width:100%;
+  border:0;
+  background:#fff0f5;
+  color:#df3e76;
+  padding:13px;
+  border-radius:15px;
+  font-weight:bold;
+}
 
-      .profiles {
-        transform: scale(.85);
-        margin-top: -20px;
-      }
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:72px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(15px);
+  border-top:1px solid #f1e4ea;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:50;
+}
 
-      .features {
-        grid-template-columns: 1fr;
-        padding: 20px 6% 60px;
-      }
+.bottom-btn{
+  background:none;
+  border:0;
+  color:#958b96;
+  font-size:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+}
 
-      .cta {
-        margin: 20px 6% 50px;
-      }
-    }
-  </style>
+.bottom-btn span{
+  font-size:22px;
+}
+
+.bottom-btn.active{
+  color:#ed4b83;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:90px;
+  transform:translateX(-50%) translateY(20px);
+  background:#29232b;
+  color:white;
+  padding:13px 20px;
+  border-radius:30px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:100;
+  font-size:13px;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:600px){
+  nav{
+    padding:0 5%;
+  }
+
+  .section{
+    padding:30px 5%;
+  }
+
+  .photo{
+    height:390px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <nav>
   <div class="logo">Lumi ♡</div>
-
-  <div class="menu">
-    <a href="#home">خانه</a>
-    <a href="#features">امکانات</a>
-    <a href="#about">درباره Lumi</a>
-    <a class="join" href="#start">عضویت</a>
-  </div>
+  <button class="nav-btn" onclick="showToast('به Lumi خوش اومدی 💗')">
+    ورود
+  </button>
 </nav>
 
-<section class="hero" id="home">
+<!-- HOME -->
+<div class="page active" id="home">
 
-  <div class="hero-text">
-
+  <section class="hero">
     <span class="badge">♡ FIND YOUR CONNECTION</span>
 
     <h1>
@@ -328,118 +412,304 @@
     </h1>
 
     <p>
-      Lumi جایی برای آشنایی با آدم‌های جدید،
-      پیدا کردن علایق مشترک و ساختن ارتباط‌های واقعی است.
+      آدم‌های جدید رو کشف کن، علایق مشترک پیدا کن
+      و ارتباط‌های تازه بساز.
     </p>
+  </section>
 
-    <div class="buttons">
-      <button class="primary" onclick="startLumi()">
-        شروع آشنایی ♡
-      </button>
+  <section class="section">
 
-      <button class="secondary" onclick="showProfiles()">
-        دیدن پروفایل‌ها
-      </button>
+    <div class="title">
+      <h2>کشف آدم‌ها 🔥</h2>
+      <span>Discover</span>
     </div>
 
-  </div>
+    <div class="profile-area">
 
-  <div class="profiles">
+      <div class="profile-card" id="card">
 
-    <div class="profile one">
+        <div class="photo" id="photo">👩🏻</div>
 
-      <div class="avatar">👩🏻</div>
+        <div class="profile-info">
 
-      <div class="info">
-        <h3>سارا، ۲۴</h3>
-        <p>📍 تهران · موسیقی · سفر</p>
-        <p class="online">● آنلاین</p>
+          <div class="profile-name">
+            <h3 id="name">سارا، ۲۴</h3>
+            <span class="verified">✓</span>
+          </div>
+
+          <div class="meta" id="meta">
+            📍 تهران · ۳ کیلومتر
+          </div>
+
+          <div class="bio" id="bio">
+            عاشق موسیقی، سفر و کافه‌های دنج.
+            دنبال آشنایی خوب و گفت‌وگوی جذابم.
+          </div>
+
+          <div class="tags" id="tags">
+            <span class="tag">موسیقی</span>
+            <span class="tag">سفر</span>
+            <span class="tag">کافه</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="action pass" onclick="passProfile()">✕</button>
+        <button class="action super" onclick="superLike()">★</button>
+        <button class="action like" onclick="likeProfile()">♥</button>
+      </div>
+
+      <div class="empty" id="empty">
+        <div class="heart">💗</div>
+        <h3>فعلاً همین بود!</h3>
+        <p>بعداً دوباره سر بزن تا آدم‌های جدید ببینی.</p>
       </div>
 
     </div>
 
-    <div class="profile two">
+  </section>
 
-      <div class="avatar">👨🏻</div>
+</div>
 
-      <div class="info">
-        <h3>آرین، ۲۶</h3>
-        <p>📍 اصفهان · فیلم · کافه</p>
-        <p class="online">● آنلاین</p>
+<!-- MATCHES -->
+<div class="page" id="matches">
+
+  <section class="section">
+
+    <div class="title">
+      <h2>Match های تو 💞</h2>
+      <span id="matchCount">۰ نفر</span>
+    </div>
+
+    <div class="matches" id="matchesList">
+
+      <div class="match">
+        <div class="match-photo">👩🏻</div>
+        <p>سارا</p>
+      </div>
+
+      <div class="match">
+        <div class="match-photo">👨🏻</div>
+        <p>آرین</p>
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+</div>
 
-<section id="features">
+<!-- PROFILE -->
+<div class="page" id="profile">
 
-  <div class="section-title">
-    <h2>چرا Lumi؟</h2>
-    <p>آشنایی ساده‌تر، طبیعی‌تر و جذاب‌تر.</p>
-  </div>
+  <section class="section">
 
-  <div class="features">
-
-    <div class="feature">
-      <div class="icon">💗</div>
-      <h3>ارتباط واقعی</h3>
-      <p>
-        آدم‌هایی با علایق مشترک پیدا کن و
-        گفت‌وگو رو از یک نقطه مشترک شروع کن.
-      </p>
+    <div class="title">
+      <h2>پروفایل من 👤</h2>
     </div>
 
-    <div class="feature">
-      <div class="icon">✨</div>
-      <h3>پروفایل‌های جذاب</h3>
-      <p>
-        علایق و ویژگی‌های خودت رو معرفی کن
-        تا دیگران راحت‌تر تو رو بشناسن.
-      </p>
+    <div class="profile-box">
+
+      <div class="profile-header">
+
+        <div class="my-avatar">😎</div>
+
+        <div>
+          <h3>پروفایل شما</h3>
+          <p>هنوز اطلاعاتت کامل نشده.</p>
+        </div>
+
+      </div>
+
+      <button class="edit" onclick="showToast('صفحه ویرایش پروفایل به‌زودی اضافه میشه ✨')">
+        ویرایش پروفایل
+      </button>
+
     </div>
 
-    <div class="feature">
-      <div class="icon">💬</div>
-      <h3>گفت‌وگو</h3>
-      <p>
-        وقتی علاقه دوطرفه باشه،
-        می‌تونی گفت‌وگو رو شروع کنی.
-      </p>
-    </div>
+  </section>
 
-  </div>
+</div>
 
-</section>
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
 
-<section class="cta" id="start">
-
-  <h2>آماده‌ای آشنا بشی؟ 💗</h2>
-
-  <p>
-    یک پروفایل بساز و Lumi رو امتحان کن.
-  </p>
-
-  <button onclick="startLumi()">
-    ساخت پروفایل
+  <button class="bottom-btn active" onclick="openPage('home',this)">
+    <span>🔥</span>
+    کشف
   </button>
 
-</section>
+  <button class="bottom-btn" onclick="openPage('matches',this)">
+    <span>💞</span>
+    Match
+  </button>
 
-<footer id="about">
-  © 2026 Lumi — ساخته شده برای آشنایی‌های جدید ♡
-</footer>
+  <button class="bottom-btn" onclick="showToast('بخش چت به‌زودی اضافه میشه 💬')">
+    <span>💬</span>
+    چت
+  </button>
+
+  <button class="bottom-btn" onclick="openPage('profile',this)">
+    <span>👤</span>
+    پروفایل
+  </button>
+
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-  function startLumi() {
-    alert("به Lumi خوش اومدی! 💗\nاین بخش در نسخه آزمایشی قرار داره.");
+
+const profiles = [
+
+  {
+    name:"سارا، ۲۴",
+    photo:"👩🏻",
+    meta:"📍 تهران · ۳ کیلومتر",
+    bio:"عاشق موسیقی، سفر و کافه‌های دنج. دنبال آشنایی خوب و گفت‌وگوی جذابم.",
+    tags:["موسیقی","سفر","کافه"]
+  },
+
+  {
+    name:"آرین، ۲۶",
+    photo:"👨🏻",
+    meta:"📍 اصفهان · ۵ کیلومتر",
+    bio:"فیلم، عکاسی و کشف جاهای جدید. همیشه برای یک گفت‌وگوی خوب آماده‌ام.",
+    tags:["فیلم","عکاسی","کافه"]
+  },
+
+  {
+    name:"نیلا، ۲۳",
+    photo:"👩🏼",
+    meta:"📍 شیراز · ۲ کیلومتر",
+    bio:"کتاب، هنر و موسیقی. آدم‌های صمیمی و خوش‌صحبت رو دوست دارم.",
+    tags:["کتاب","هنر","موسیقی"]
+  },
+
+  {
+    name:"پارسا، ۲۸",
+    photo:"👨🏼",
+    meta:"📍 مشهد · ۷ کیلومتر",
+    bio:"ورزش، سفر و تکنولوژی. دنبال یک ارتباط واقعی و محترمانه هستم.",
+    tags:["ورزش","سفر","تکنولوژی"]
   }
 
-  function showProfiles() {
-    alert("پروفایل‌های بیشتر به‌زودی اضافه می‌شن ✨");
+];
+
+let current = 0;
+let matches = 2;
+
+function loadProfile(){
+
+  if(current >= profiles.length){
+
+    document.getElementById("card").style.display="none";
+    document.querySelector(".actions").style.display="none";
+    document.getElementById("empty").style.display="block";
+
+    return;
   }
+
+  const p = profiles[current];
+
+  document.getElementById("name").innerText=p.name;
+  document.getElementById("photo").innerText=p.photo;
+  document.getElementById("meta").innerText=p.meta;
+  document.getElementById("bio").innerText=p.bio;
+
+  document.getElementById("tags").innerHTML =
+    p.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+}
+
+function nextProfile(){
+
+  const card=document.getElementById("card");
+
+  card.classList.add("removing");
+
+  setTimeout(()=>{
+
+    card.classList.remove("removing");
+
+    current++;
+
+    loadProfile();
+
+  },350);
+}
+
+function passProfile(){
+
+  showToast("پروفایل بعدی 👋");
+  nextProfile();
+
+}
+
+function likeProfile(){
+
+  matches++;
+
+  document.getElementById("matchCount").innerText =
+    matches + " نفر";
+
+  showToast("یه Like فرستادی ❤️");
+
+  nextProfile();
+
+}
+
+function superLike(){
+
+  matches++;
+
+  document.getElementById("matchCount").innerText =
+    matches + " نفر";
+
+  showToast("Super Like فرستاده شد ⭐");
+
+  nextProfile();
+
+}
+
+function openPage(id,btn){
+
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll(".bottom-btn").forEach(b=>{
+    b.classList.remove("active");
+  });
+
+  if(btn) btn.classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function showToast(message){
+
+  const toast=document.getElementById("toast");
+
+  toast.innerText=message;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+
+}
+
+loadProfile();
+
 </script>
 
 </body>
