@@ -2,169 +2,382 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumi — آشنایی جدید</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#f7f7f5">
+<title>Lumi — آشنایی و ارتباط</title>
 
 <style>
+:root{
+  --bg:#f7f7f5;
+  --card:#ffffff;
+  --text:#151515;
+  --muted:#777;
+  --muted2:#999;
+  --line:#e9e9e7;
+  --soft:#f1f1ef;
+  --soft2:#e7e7e4;
+  --accent:#151515;
+  --danger:#d64545;
+  --success:#35a866;
+  --shadow:0 12px 35px rgba(0,0,0,.055);
+}
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
-:root{
-  --bg:#faf9fa;
-  --card:#ffffff;
-  --text:#211d21;
-  --muted:#8d838b;
-  --line:#eee8ec;
-  --accent:#e85b86;
-  --soft:#f8edf2;
-  --dark:#211e21;
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,sans-serif;
+  font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Tahoma,
+  Arial,
+  sans-serif;
   background:var(--bg);
   color:var(--text);
-  padding-bottom:75px;
+  min-height:100vh;
   transition:.25s;
 }
 
-button,input,textarea{
+button,
+input,
+textarea,
+select{
   font:inherit;
 }
 
 button{
+  border:0;
   cursor:pointer;
 }
 
+button:active{
+  transform:scale(.97);
+}
+
+/* =========================
+HEADER
+========================= */
+
 .top{
-  height:65px;
-  padding:0 5%;
+  height:68px;
+  padding:0 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  background:rgba(247,247,245,.9);
+  backdrop-filter:blur(20px);
   position:sticky;
   top:0;
-  z-index:30;
-  background:#ffffffee;
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
+  z-index:100;
+  border-bottom:1px solid transparent;
 }
 
 .logo{
-  color:var(--accent);
-  font-size:25px;
-  font-weight:900;
+  font-size:23px;
+  font-weight:850;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:#888;
+  font-weight:500;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.header-icon{
+  width:39px;
+  height:39px;
+  border-radius:13px;
+  background:var(--soft);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
 }
 
 .auth-btn{
-  border:0;
-  background:var(--dark);
-  color:white;
-  padding:9px 16px;
-  border-radius:22px;
+  background:var(--text);
+  color:#fff;
+  border-radius:13px;
+  padding:10px 15px;
   font-size:12px;
 }
 
+/* =========================
+PAGE
+========================= */
+
 .page{
   display:none;
+  min-height:calc(100vh - 68px);
+  padding-bottom:100px;
 }
 
 .page.active{
   display:block;
 }
 
-.hero{
-  text-align:center;
-  padding:55px 6% 35px;
-}
-
-.hero-label{
-  color:#94707d;
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:bold;
-  margin-bottom:16px;
-}
-
-.hero h1{
-  font-size:clamp(40px,9vw,68px);
-  line-height:1.08;
-  letter-spacing:-2px;
-}
-
-.hero h1 span{
-  color:var(--accent);
-}
-
-.hero p{
-  max-width:520px;
-  margin:18px auto;
-  color:var(--muted);
-  line-height:1.9;
-  font-size:14px;
-}
-
 .container{
-  max-width:680px;
+  width:min(100% - 30px,1050px);
   margin:auto;
-  padding:25px 6%;
 }
 
-.title{
+/* =========================
+HOME HERO
+========================= */
+
+.hero{
+  padding:35px 3px 20px;
+}
+
+.hero-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:17px;
 }
 
-.title h2{
-  font-size:24px;
-}
-
-.card,
-.box{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  box-shadow:0 10px 35px rgba(30,15,25,.05);
-}
-
-.discover-card{
-  overflow:hidden;
-}
-
-.photo{
-  height:360px;
-  background:linear-gradient(145deg,#f2e8ed,#e9e4f3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:105px;
-}
-
-.info{
-  padding:19px;
-}
-
-.name{
-  font-size:22px;
+.hero-label{
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--muted);
   font-weight:800;
 }
 
-.meta{
+.hero-status{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:10px;
+  color:var(--success);
+}
+
+.hero-status i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--success);
+}
+
+.hero h1{
+  font-size:40px;
+  line-height:1.13;
+  letter-spacing:-2px;
+  margin-bottom:12px;
+}
+
+.hero h1 span{
+  color:#888;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:2;
+  max-width:530px;
+}
+
+/* =========================
+SEARCH
+========================= */
+
+.search-box{
+  display:flex;
+  gap:8px;
+  margin:15px 0;
+}
+
+.search-wrap{
+  flex:1;
+  position:relative;
+}
+
+.search-wrap span{
+  position:absolute;
+  right:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:15px;
+  color:#999;
+}
+
+.search-wrap input{
+  width:100%;
+  height:48px;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:16px;
+  outline:0;
+  padding:0 42px 0 13px;
+  color:var(--text);
+}
+
+.filter-btn{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:17px;
+}
+
+/* =========================
+QUICK FILTERS
+========================= */
+
+.quick-filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:2px 0 13px;
+  scrollbar-width:none;
+}
+
+.quick-filters::-webkit-scrollbar{
+  display:none;
+}
+
+.quick-filter{
+  white-space:nowrap;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--muted);
+  padding:9px 13px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+.quick-filter.active{
+  background:var(--text);
+  color:#fff;
+  border-color:var(--text);
+}
+
+/* =========================
+SECTION TITLE
+========================= */
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:14px 0;
+}
+
+.section-title h2{
+  font-size:20px;
+  letter-spacing:-.5px;
+}
+
+.section-title span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* =========================
+PERSON CARD
+========================= */
+
+.person-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  max-width:650px;
+  margin:0 auto 20px;
+}
+
+.person-photo{
+  height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:110px;
+  position:relative;
+  background:
+  radial-gradient(circle at 30% 20%,#fff 0,#f0f0ee 48%,#dcdcd9 100%);
+}
+
+.photo-gradient{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0,0,0,.12)
+  );
+}
+
+.online{
+  position:absolute;
+  right:16px;
+  top:16px;
+  background:rgba(255,255,255,.94);
+  border-radius:20px;
+  padding:7px 11px;
+  font-size:10px;
+  z-index:2;
+}
+
+.online i{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  background:#36b86b;
+  border-radius:50%;
+  margin-left:5px;
+}
+
+.photo-count{
+  position:absolute;
+  left:15px;
+  top:15px;
+  background:rgba(0,0,0,.5);
+  color:#fff;
+  padding:7px 10px;
+  border-radius:15px;
+  font-size:10px;
+  z-index:2;
+}
+
+.person-info{
+  padding:19px 19px 5px;
+}
+
+.person-name{
+  font-size:24px;
+  font-weight:850;
+  letter-spacing:-.7px;
+}
+
+.person-meta{
   color:var(--muted);
   font-size:12px;
-  margin-top:7px;
+  margin-top:5px;
 }
 
 .bio{
-  color:#625961;
-  line-height:1.8;
+  color:#555;
   font-size:13px;
-  margin-top:12px;
+  line-height:1.95;
+  margin-top:13px;
 }
 
 .tags{
@@ -176,188 +389,471 @@ button{
 
 .tag{
   background:var(--soft);
-  color:#765763;
-  border:1px solid #eee1e7;
+  color:#666;
+  padding:7px 10px;
   border-radius:20px;
-  padding:6px 10px;
-  font-size:11px;
+  font-size:10px;
 }
 
 .actions{
   display:flex;
+  align-items:center;
   justify-content:center;
-  gap:14px;
-  margin:18px;
+  gap:13px;
+  padding:17px 15px 21px;
 }
 
 .action{
   width:54px;
   height:54px;
   border-radius:50%;
-  background:white;
-  border:1px solid var(--line);
-  box-shadow:0 7px 20px rgba(30,15,25,.08);
-  font-size:20px;
-}
-
-.action.like{
-  color:var(--accent);
-}
-
-.action.star{
-  color:#8065d8;
+  background:var(--soft);
+  color:var(--text);
+  font-size:21px;
+  transition:.18s;
 }
 
 .action.pass{
-  color:#777;
+  color:#888;
 }
+
+.action.like{
+  background:var(--text);
+  color:#fff;
+}
+
+.action.super{
+  width:46px;
+  height:46px;
+  font-size:17px;
+}
+
+/* =========================
+DISCOVER INFO
+========================= */
+
+.discover-info{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  color:var(--muted);
+  font-size:10px;
+  margin:8px 0 18px;
+}
+
+.discover-info span{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+/* =========================
+EMPTY
+========================= */
+
+.empty{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:40px 20px;
+  text-align:center;
+  color:var(--muted);
+  line-height:2;
+}
+
+.empty-icon{
+  font-size:43px;
+  margin-bottom:8px;
+}
+
+.empty b{
+  display:block;
+  color:var(--text);
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+/* =========================
+SMALL CARDS
+========================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:13px;
+  gap:12px;
 }
 
-.match,
-.chat{
+.small-card{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:20px;
-  padding:14px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  cursor:pointer;
+  overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
-.avatar{
-  width:58px;
-  height:58px;
-  flex:none;
-  border-radius:50%;
-  background:linear-gradient(145deg,#f1dce5,#e1dff0);
+.small-photo{
+  height:160px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:27px;
+  font-size:65px;
+  background:linear-gradient(145deg,#fff,#e9e9e7);
 }
 
-.muted{
+.small-info{
+  padding:12px;
+}
+
+.small-name{
+  font-weight:800;
+  font-size:14px;
+}
+
+.small-meta{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
+}
+
+/* =========================
+PROFILE
+========================= */
+
+.profile-cover{
+  height:135px;
+  border-radius:26px;
+  background:
+  radial-gradient(circle at 20% 20%,#fff 0,#eee 40%,#d7d7d4 100%);
+  position:relative;
+  margin-bottom:48px;
+}
+
+.profile-cover-edit{
+  position:absolute;
+  left:14px;
+  top:14px;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:rgba(255,255,255,.8);
+}
+
+.profile-avatar-large{
+  position:absolute;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  bottom:-43px;
+  right:20px;
+  background:var(--card);
+  border:5px solid var(--card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.profile-content{
+  padding:0 4px;
+}
+
+.profile-name{
+  font-size:24px;
+  font-weight:850;
+}
+
+.profile-city{
   color:var(--muted);
   font-size:12px;
   margin-top:5px;
 }
 
-.center{
+.profile-bio{
+  color:#555;
+  font-size:13px;
+  line-height:1.9;
+  margin-top:13px;
+}
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:18px 0;
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:14px 8px;
   text-align:center;
 }
 
-.profile-box{
-  padding:22px;
-}
-
-.profile-head{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.profile-head .avatar{
-  width:72px;
-  height:72px;
-  font-size:34px;
-}
-
-.primary{
-  width:100%;
-  margin-top:18px;
-  padding:13px;
-  border:0;
-  border-radius:13px;
-  background:var(--dark);
-  color:white;
-  font-weight:bold;
-}
-
-.settings{
-  margin-top:14px;
-  padding:10px 17px;
-}
-
-.settings-title{
-  font-size:14px;
-  font-weight:bold;
-  padding:8px 0 5px;
-}
-
-.setting{
-  width:100%;
-  border:0;
-  border-bottom:1px solid var(--line);
-  background:none;
-  padding:15px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--text);
-  font-size:13px;
-  text-align:right;
-}
-
-.setting:last-child{
-  border-bottom:0;
-}
-
-.setting span:last-child{
-  color:#aaa0a8;
+.stat strong{
+  display:block;
   font-size:18px;
 }
 
-.setting.danger{
-  color:#bd4d6d;
+.stat span{
+  color:var(--muted);
+  font-size:9px;
+  margin-top:3px;
+  display:block;
 }
+
+/* =========================
+MENU
+========================= */
+
+.menu-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:6px;
+  margin-bottom:13px;
+}
+
+.menu-title{
+  padding:13px 13px 8px;
+  font-size:11px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.menu-item{
+  width:100%;
+  min-height:58px;
+  padding:9px 10px;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--text);
+  border-bottom:1px solid var(--line);
+  text-align:right;
+}
+
+.menu-item:last-child{
+  border-bottom:0;
+}
+
+.menu-icon{
+  width:39px;
+  height:39px;
+  border-radius:13px;
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  flex:none;
+}
+
+.menu-text{
+  flex:1;
+}
+
+.menu-text b{
+  display:block;
+  font-size:12px;
+}
+
+.menu-text span{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-top:3px;
+}
+
+.menu-arrow{
+  color:#aaa;
+  font-size:16px;
+}
+
+.toggle{
+  width:43px;
+  height:25px;
+  background:#d4d4d4;
+  border-radius:20px;
+  position:relative;
+  flex:none;
+}
+
+.toggle:after{
+  content:"";
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  background:#fff;
+  position:absolute;
+  top:3px;
+  right:3px;
+  transition:.2s;
+}
+
+.toggle.on{
+  background:#111;
+}
+
+.toggle.on:after{
+  right:21px;
+}
+
+/* =========================
+CHAT
+========================= */
+
+.chat-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:13px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:9px;
+}
+
+.avatar{
+  width:49px;
+  height:49px;
+  flex:none;
+  border-radius:50%;
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.chat-main{
+  flex:1;
+  min-width:0;
+}
+
+.chat-name{
+  font-size:13px;
+  font-weight:800;
+}
+
+.last-msg{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.chat-time{
+  color:#aaa;
+  font-size:9px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.primary{
+  width:100%;
+  padding:14px;
+  border-radius:15px;
+  background:var(--text);
+  color:#fff;
+  margin-top:7px;
+  font-size:13px;
+}
+
+.secondary{
+  width:100%;
+  padding:13px;
+  border-radius:15px;
+  background:var(--soft);
+  color:var(--text);
+  margin-top:8px;
+  font-size:13px;
+}
+
+.danger-btn{
+  width:100%;
+  padding:13px;
+  border-radius:15px;
+  background:#fff1f1;
+  color:var(--danger);
+  margin-top:8px;
+}
+
+/* =========================
+BOTTOM NAV
+========================= */
 
 .bottom{
   position:fixed;
-  left:0;
-  right:0;
   bottom:0;
-  height:70px;
-  z-index:40;
-  background:#ffffffef;
-  backdrop-filter:blur(15px);
+  right:0;
+  left:0;
+  height:76px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(20px);
   border-top:1px solid var(--line);
   display:flex;
   justify-content:space-around;
+  align-items:center;
+  z-index:200;
+  padding-bottom:env(safe-area-inset-bottom);
 }
 
 .bottom button{
-  border:0;
-  background:none;
-  color:#958b94;
+  background:transparent;
+  color:#999;
   font-size:10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-}
-
-.bottom button span{
-  font-size:20px;
+  min-width:65px;
+  height:58px;
+  line-height:1.7;
+  position:relative;
 }
 
 .bottom button.active{
-  color:var(--accent);
+  color:var(--text);
+  font-weight:800;
 }
+
+.nav-icon{
+  font-size:19px;
+  display:block;
+  line-height:1;
+  margin-bottom:4px;
+}
+
+.nav-badge{
+  position:absolute;
+  top:1px;
+  right:18px;
+  min-width:16px;
+  height:16px;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+  font-size:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =========================
+MODAL
+========================= */
 
 .modal{
   position:fixed;
   inset:0;
-  background:#160d1380;
-  z-index:100;
+  background:rgba(0,0,0,.45);
   display:none;
   align-items:flex-end;
+  justify-content:center;
+  z-index:700;
 }
 
 .modal.show{
@@ -365,160 +861,338 @@ button{
 }
 
 .sheet{
-  width:min(600px,100%);
-  max-height:90vh;
+  width:min(100%,650px);
+  max-height:91vh;
   overflow:auto;
   background:var(--card);
-  border-radius:25px 25px 0 0;
-  padding:25px;
-  margin:auto auto 0;
+  border-radius:28px 28px 0 0;
+  padding:26px 20px 35px;
+  position:relative;
+  animation:sheetUp .22s ease;
+}
+
+@keyframes sheetUp{
+  from{
+    transform:translateY(100%);
+  }
+  to{
+    transform:translateY(0);
+  }
 }
 
 .close{
-  float:left;
-  width:34px;
-  height:34px;
-  border:0;
+  position:absolute;
+  left:16px;
+  top:15px;
+  width:35px;
+  height:35px;
   border-radius:50%;
-  background:#f2edf0;
+  background:var(--soft);
+  color:var(--text);
+  font-size:22px;
 }
 
-.form{
-  display:grid;
-  gap:12px;
-  margin-top:20px;
+.form-title{
+  font-size:22px;
+  font-weight:850;
+  margin-bottom:21px;
 }
 
-.input,
-textarea{
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-bottom:7px;
+}
+
+.field input,
+.field textarea,
+.field select{
   width:100%;
   border:1px solid var(--line);
-  border-radius:12px;
+  background:var(--bg);
+  color:var(--text);
+  border-radius:14px;
   padding:13px;
   outline:none;
-  background:white;
-  color:#222;
 }
 
-.input:focus,
-textarea:focus{
-  border-color:var(--accent);
+.field textarea{
+  min-height:95px;
+  resize:vertical;
 }
 
-.row{
-  display:flex;
-  gap:10px;
-}
-
-.row>*{
-  flex:1;
-}
-
-.chatbox{
-  height:350px;
-  overflow:auto;
-  background:#faf6f8;
-  border-radius:17px;
-  padding:15px;
+.option-row{
   display:flex;
   flex-direction:column;
-  gap:9px;
-  margin-top:18px;
+  gap:8px;
+}
+
+.option{
+  width:100%;
+  background:var(--soft);
+  border:1px solid transparent;
+  border-radius:14px;
+  padding:13px;
+  text-align:right;
+  color:var(--text);
+}
+
+.option.selected{
+  border-color:var(--text);
+}
+
+/* =========================
+CHAT WINDOW
+========================= */
+
+.chat-window{
+  height:67vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.chat-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+
+.chat-messages{
+  flex:1;
+  overflow:auto;
+  padding:15px 0;
 }
 
 .message{
   max-width:78%;
   padding:10px 13px;
-  border-radius:16px;
-  font-size:13px;
-  line-height:1.6;
+  border-radius:18px;
+  margin-bottom:8px;
+  font-size:12px;
+  line-height:1.75;
 }
 
-.message.mine{
-  align-self:flex-start;
-  background:var(--accent);
-  color:white;
+.message.me{
+  margin-right:auto;
+  background:#111;
+  color:#fff;
   border-bottom-left-radius:5px;
 }
 
-.message.theirs{
-  align-self:flex-end;
-  background:#ebe6e9;
-  color:#292329;
+.message.them{
+  margin-left:auto;
+  background:var(--soft);
   border-bottom-right-radius:5px;
 }
 
+.chat-input{
+  display:flex;
+  gap:8px;
+}
+
+.chat-input input{
+  flex:1;
+  border:1px solid var(--line);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:15px;
+  padding:12px;
+  outline:0;
+}
+
+.send{
+  width:48px;
+  border-radius:15px;
+  background:#111;
+  color:#fff;
+}
+
+/* =========================
+MATCH
+========================= */
+
+.match-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:900;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.match-overlay.show{
+  display:flex;
+}
+
+.match-box{
+  width:min(100%,390px);
+  background:var(--card);
+  border-radius:30px;
+  padding:34px 23px;
+  text-align:center;
+  animation:pop .25s ease;
+}
+
+@keyframes pop{
+  from{
+    transform:scale(.8);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.match-heart{
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+.match-box h2{
+  font-size:27px;
+}
+
+.match-box p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+  margin:10px 0 18px;
+}
+
+/* =========================
+TOAST
+========================= */
+
 .toast{
   position:fixed;
-  z-index:200;
-  bottom:90px;
+  bottom:92px;
   left:50%;
-  transform:translate(-50%,20px);
+  transform:translateX(-50%) translateY(15px);
+  background:#111;
+  color:#fff;
+  padding:11px 16px;
+  border-radius:14px;
+  font-size:11px;
   opacity:0;
-  background:#292329;
-  color:white;
-  padding:12px 18px;
-  border-radius:30px;
-  font-size:12px;
+  pointer-events:none;
   transition:.25s;
+  z-index:1200;
+  white-space:nowrap;
 }
 
 .toast.show{
   opacity:1;
-  transform:translate(-50%,0);
+  transform:translateX(-50%) translateY(0);
 }
 
-/* DARK MODE */
+/* =========================
+DARK
+========================= */
 
-body.dark{
-  --bg:#171517;
-  --card:#211e21;
-  --text:#f5f1f3;
-  --muted:#aaa0a8;
-  --line:#373237;
-  --soft:#30292d;
+.dark{
+  --bg:#0c0c0c;
+  --card:#151515;
+  --text:#f5f5f5;
+  --muted:#888;
+  --muted2:#777;
+  --line:#282828;
+  --soft:#202020;
+  --soft2:#292929;
+  --accent:#fff;
+  --danger:#ff7070;
+  --shadow:0 12px 35px rgba(0,0,0,.25);
 }
 
-body.dark .top,
-body.dark .bottom{
-  background:#211e21ee;
+.dark .top{
+  background:rgba(12,12,12,.9);
 }
 
-body.dark .photo{
-  background:linear-gradient(145deg,#30282c,#29272f);
+.dark .bottom{
+  background:rgba(14,14,14,.95);
 }
 
-body.dark .action{
-  background:#211e21;
+.dark .person-photo{
+  background:
+  radial-gradient(circle at 30% 20%,#303030 0,#1b1b1b 48%,#111 100%);
 }
 
-body.dark .input,
-body.dark textarea{
-  background:#211e21;
-  color:white;
+.dark .small-photo{
+  background:linear-gradient(145deg,#242424,#121212);
 }
 
-body.dark .chatbox{
-  background:#191619;
+.dark .bio,
+.dark .profile-bio{
+  color:#aaa;
 }
 
-body.dark .message.theirs{
-  background:#322d31;
-  color:white;
+.dark .primary,
+.dark .action.like,
+.dark .send,
+.dark .toggle.on{
+  background:#f5f5f5;
+  color:#111;
 }
 
-@media(max-width:520px){
+.dark .message.me{
+  background:#f5f5f5;
+  color:#111;
+}
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+.dark .profile-cover{
+  background:
+  radial-gradient(circle at 20% 20%,#333 0,#222 45%,#111 100%);
+}
 
-  .photo{
-    height:350px;
+.dark .danger-btn{
+  background:#301919;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(min-width:700px){
+
+  .container{
+    width:min(100% - 40px,1000px);
   }
 
   .hero{
-    padding-top:45px;
+    padding-top:55px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .bottom{
+    width:600px;
+    left:50%;
+    right:auto;
+    transform:translateX(-50%);
+    border-radius:20px 20px 0 0;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .person-photo{
+    height:325px;
   }
 
 }
@@ -527,101 +1201,236 @@ body.dark .message.theirs{
 
 <body>
 
+<!-- =========================
+HEADER
+========================= -->
+
 <header class="top">
 
   <div class="logo">
-    Lumi ♡
+    Lumi <span>♡</span>
   </div>
 
-  <button class="auth-btn"
-          id="authBtn"
-          onclick="handleAuth()">
-    ورود
-  </button>
+  <div class="header-actions">
+
+    <button
+      class="header-icon"
+      onclick="openNotifications()"
+      title="اعلان‌ها"
+    >
+      ♢
+    </button>
+
+    <button
+      class="auth-btn"
+      id="authBtn"
+      onclick="handleAuth()"
+    >
+      ورود
+    </button>
+
+  </div>
 
 </header>
 
 
-<!-- HOME -->
+<!-- =========================
+HOME
+========================= -->
 
 <section id="home" class="page active">
 
-  <div class="hero">
-
-    <div class="hero-label">
-      FIND YOUR CONNECTION
-    </div>
-
-    <h1>
-      شاید اینجا
-      <br>
-      <span>آدم تو باشه.</span>
-    </h1>
-
-    <p>
-      آدم‌های جدید رو کشف کن،
-      ارتباط بساز و گفت‌وگو رو شروع کن.
-    </p>
-
-  </div>
-
   <div class="container">
 
-    <div class="title">
+    <div class="hero">
 
-      <h2>
-        کشف
-      </h2>
+      <div class="hero-top">
 
-      <span class="muted" id="counter"></span>
+        <div class="hero-label">
+          FIND YOUR CONNECTION
+        </div>
+
+        <div class="hero-status">
+          <i></i>
+          آنلاین
+        </div>
+
+      </div>
+
+      <h1>
+        آدم‌های جدید.<br>
+        <span>ارتباط‌های واقعی.</span>
+      </h1>
+
+      <p>
+        پروفایل‌های نزدیک به علایقت رو کشف کن،
+        آدم مناسب رو پیدا کن و گفت‌وگو رو شروع کن.
+      </p>
 
     </div>
 
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+      <div class="search-wrap">
+
+        <span>⌕</span>
+
+        <input
+          id="searchInput"
+          placeholder="جستجوی نام، شهر یا علاقه..."
+          oninput="searchPeople()"
+        >
+
+      </div>
+
+      <button
+        class="filter-btn"
+        onclick="openFilters()"
+      >
+        ⚙
+      </button>
+
+    </div>
+
+
+    <!-- QUICK FILTERS -->
+
+    <div class="quick-filters">
+
+      <button
+        class="quick-filter active"
+        onclick="quickFilter('all',this)"
+      >
+        همه
+      </button>
+
+      <button
+        class="quick-filter"
+        onclick="quickFilter('music',this)"
+      >
+        🎵 موسیقی
+      </button>
+
+      <button
+        class="quick-filter"
+        onclick="quickFilter('travel',this)"
+      >
+        ✈️ سفر
+      </button>
+
+      <button
+        class="quick-filter"
+        onclick="quickFilter('art',this)"
+      >
+        🎨 هنر
+      </button>
+
+      <button
+        class="quick-filter"
+        onclick="quickFilter('sport',this)"
+      >
+        ⚽ ورزش
+      </button>
+
+      <button
+        class="quick-filter"
+        onclick="quickFilter('tech',this)"
+      >
+        💻 تکنولوژی
+      </button>
+
+    </div>
+
+
+    <div class="section-title">
+
+      <h2>
+        برای تو
+      </h2>
+
+      <span id="counter">
+        0 نفر
+      </span>
+
+    </div>
+
+
     <div id="discover"></div>
+
+
+    <div class="discover-info">
+
+      <span>
+        ♡
+        پسندیدن
+      </span>
+
+      <span>
+        ×
+        رد کردن
+      </span>
+
+      <span>
+        ★
+        Super Like
+      </span>
+
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- MATCHES -->
+<!-- =========================
+MATCHES
+========================= -->
 
 <section id="matches" class="page">
 
   <div class="container">
 
-    <div class="title">
+    <div class="hero" style="padding-bottom:20px">
 
-      <h2>
-        Match
-      </h2>
+      <div class="hero-label">
+        YOUR CONNECTIONS
+      </div>
 
-      <span class="muted">
-        ارتباط‌های دوطرفه
-      </span>
+      <h1 style="font-size:31px">
+        آدم‌هایی که<br>
+        <span>پسندیدی.</span>
+      </h1>
 
     </div>
 
-    <div id="matchesList"
-         class="grid">
-    </div>
+    <div id="matchesList"></div>
 
   </div>
 
 </section>
 
 
-<!-- CHATS -->
+<!-- =========================
+CHATS
+========================= -->
 
 <section id="chats" class="page">
 
   <div class="container">
 
-    <div class="title">
+    <div class="hero" style="padding-bottom:20px">
 
-      <h2>
-        چت‌ها
-      </h2>
+      <div class="hero-label">
+        YOUR CONVERSATIONS
+      </div>
+
+      <h1 style="font-size:31px">
+        گفت‌وگوهای<br>
+        <span>تو.</span>
+      </h1>
 
     </div>
 
@@ -632,111 +1441,251 @@ body.dark .message.theirs{
 </section>
 
 
-<!-- PROFILE -->
+<!-- =========================
+PROFILE
+========================= -->
 
 <section id="profile" class="page">
 
   <div class="container">
 
-    <div class="title">
+    <div class="hero" style="padding-bottom:10px">
 
-      <h2>
-        پروفایل
-      </h2>
+      <div class="hero-label">
+        MY PROFILE
+      </div>
+
+      <h1 style="font-size:31px">
+        پروفایل<br>
+        <span>من.</span>
+      </h1>
 
     </div>
 
     <div id="myProfile"></div>
 
+    <!-- ACCOUNT MENU -->
 
-    <!-- SETTINGS INSIDE PROFILE -->
+    <div class="menu-box">
 
-    <div class="box settings">
+      <div class="menu-title">
+        حساب کاربری
+      </div>
 
-      <div class="settings-title">
+      <button
+        class="menu-item"
+        onclick="openEdit()"
+      >
+
+        <div class="menu-icon">
+          ✎
+        </div>
+
+        <div class="menu-text">
+          <b>ویرایش پروفایل</b>
+          <span>
+            اطلاعات، علایق و درباره من
+          </span>
+        </div>
+
+        <div class="menu-arrow">
+          ‹
+        </div>
+
+      </button>
+
+
+      <button
+        class="menu-item"
+        onclick="openPhotoPicker()"
+      >
+
+        <div class="menu-icon">
+          ◉
+        </div>
+
+        <div class="menu-text">
+          <b>عکس پروفایل</b>
+          <span>
+            انتخاب آواتار جدید
+          </span>
+        </div>
+
+        <div class="menu-arrow">
+          ‹
+        </div>
+
+      </button>
+
+    </div>
+
+
+    <!-- SETTINGS -->
+
+    <div class="menu-box">
+
+      <div class="menu-title">
         تنظیمات
       </div>
 
-      <button class="setting"
-              onclick="openEdit()">
 
-        <span>
-          ویرایش پروفایل
-        </span>
+      <button
+        class="menu-item"
+        onclick="toggleNotifications()"
+      >
 
-        <span>
-          ›
-        </span>
+        <div class="menu-icon">
+          ♢
+        </div>
+
+        <div class="menu-text">
+          <b>اعلان‌ها</b>
+          <span>
+            دریافت اعلان‌های Lumi
+          </span>
+        </div>
+
+        <div
+          class="toggle"
+          id="notificationToggle"
+        ></div>
 
       </button>
 
 
-      <button class="setting"
-              onclick="toggleDark()">
+      <button
+        class="menu-item"
+        onclick="toggleDark()"
+      >
 
-        <span>
-          ظاهر
-        </span>
-
-        <span>
+        <div class="menu-icon">
           ◐
-        </span>
+        </div>
+
+        <div class="menu-text">
+          <b>حالت تاریک</b>
+          <span>
+            تغییر ظاهر برنامه
+          </span>
+        </div>
+
+        <div
+          class="toggle"
+          id="darkToggle"
+        ></div>
 
       </button>
 
 
-      <button class="setting"
-              onclick="toast('اعلان‌ها فعال هستند')">
+      <button
+        class="menu-item"
+        onclick="openPrivacy()"
+      >
 
-        <span>
-          اعلان‌ها
-        </span>
+        <div class="menu-icon">
+          ◇
+        </div>
 
-        <span>
-          ›
-        </span>
+        <div class="menu-text">
+          <b>حریم خصوصی</b>
+          <span>
+            کنترل نمایش اطلاعات
+          </span>
+        </div>
+
+        <div class="menu-arrow">
+          ‹
+        </div>
+
+      </button>
+
+    </div>
+
+
+    <!-- SUPPORT -->
+
+    <div class="menu-box">
+
+      <div class="menu-title">
+        پشتیبانی
+      </div>
+
+
+      <button
+        class="menu-item"
+        onclick="openHelp()"
+      >
+
+        <div class="menu-icon">
+          ?
+        </div>
+
+        <div class="menu-text">
+          <b>راهنمای Lumi</b>
+          <span>
+            سوالات و آموزش استفاده
+          </span>
+        </div>
+
+        <div class="menu-arrow">
+          ‹
+        </div>
 
       </button>
 
 
-      <button class="setting"
-              onclick="toast('تنظیمات حریم خصوصی')">
+      <button
+        class="menu-item"
+        onclick="openReport()"
+      >
 
-        <span>
-          حریم خصوصی
-        </span>
+        <div class="menu-icon">
+          !
+        </div>
 
-        <span>
-          ›
-        </span>
+        <div class="menu-text">
+          <b>گزارش مشکل</b>
+          <span>
+            ارسال بازخورد یا مشکل
+          </span>
+        </div>
 
-      </button>
-
-
-      <button class="setting"
-              onclick="toast('راهنمای Lumi')">
-
-        <span>
-          راهنما
-        </span>
-
-        <span>
-          ›
-        </span>
+        <div class="menu-arrow">
+          ‹
+        </div>
 
       </button>
 
+    </div>
 
-      <button class="setting danger"
-              onclick="logout()">
 
-        <span>
-          خروج از حساب
-        </span>
+    <!-- LOGOUT -->
 
-        <span>
+    <div class="menu-box">
+
+      <button
+        class="menu-item"
+        onclick="logout()"
+      >
+
+        <div
+          class="menu-icon"
+          style="color:var(--danger)"
+        >
           ↗
-        </span>
+        </div>
+
+        <div class="menu-text">
+
+          <b style="color:var(--danger)">
+            خروج از حساب
+          </b>
+
+          <span>
+            خروج از حساب فعلی
+          </span>
+
+        </div>
 
       </button>
 
@@ -747,69 +1696,74 @@ body.dark .message.theirs{
 </section>
 
 
-<!-- BOTTOM NAV -->
+<!-- =========================
+BOTTOM NAV
+========================= -->
 
 <nav class="bottom">
 
-  <button class="active"
-          onclick="nav('home',this)">
-
-    <span>
-      ⌕
-    </span>
-
+  <button
+    class="active"
+    onclick="nav('home',this)"
+  >
+    <span class="nav-icon">⌂</span>
     کشف
-
   </button>
 
-
-  <button onclick="nav('matches',this)">
-
-    <span>
-      ♡
-    </span>
-
+  <button
+    onclick="nav('matches',this)"
+  >
+    <span class="nav-icon">♡</span>
     Match
-
+    <span
+      class="nav-badge"
+      id="matchBadge"
+      style="display:none"
+    >
+      0
+    </span>
   </button>
 
-
-  <button onclick="nav('chats',this)">
-
-    <span>
-      ◌
-    </span>
-
+  <button
+    onclick="nav('chats',this)"
+  >
+    <span class="nav-icon">◌</span>
     چت
-
+    <span
+      class="nav-badge"
+      id="chatBadge"
+      style="display:none"
+    >
+      0
+    </span>
   </button>
 
-
-  <button onclick="nav('profile',this)">
-
-    <span>
-      ◯
-    </span>
-
+  <button
+    onclick="nav('profile',this)"
+  >
+    <span class="nav-icon">◎</span>
     پروفایل
-
   </button>
 
 </nav>
 
 
-<!-- MODAL -->
+<!-- =========================
+MODAL
+========================= -->
 
-<div class="modal"
-     id="modal">
+<div
+  class="modal"
+  id="modal"
+>
 
   <div class="sheet">
 
-    <button class="close"
-            onclick="closeModal()">
-
+    <button
+      class="close"
+      onclick="closeModal()"
+    >
       ×
-
     </button>
 
     <div id="modalBody"></div>
@@ -819,1234 +1773,2481 @@ body.dark .message.theirs{
 </div>
 
 
-<div class="toast"
-     id="toast">
+<!-- =========================
+MATCH OVERLAY
+========================= -->
+
+<div
+  class="match-overlay"
+  id="matchOverlay"
+>
+
+  <div class="match-box">
+
+    <div class="match-heart">
+      💕
+    </div>
+
+    <h2>
+      It's a Match!
+    </h2>
+
+    <p id="matchText">
+      شما همدیگه رو پسندیدید.
+    </p>
+
+    <button
+      class="primary"
+      onclick="startMatchChat()"
+    >
+      💬 شروع گفتگو
+    </button>
+
+    <button
+      class="secondary"
+      onclick="closeMatch()"
+    >
+      بعداً
+    </button>
+
+  </div>
+
 </div>
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
 
 
 <script>
 
-/* =========================
-   DATA
-========================= */
+/* =========================================
+DATA
+========================================= */
 
 const people = [
 
-  {
-    name:"سارا",
-    age:24,
-    city:"تهران",
-    emoji:"👩🏻",
-    bio:"عاشق موسیقی، سفر و کافه‌های دنج. دنبال آشنایی خوب و گفت‌وگوی جذابم.",
-    tags:["موسیقی","سفر","کافه"]
-  },
+{
+ id:1,
+ name:"سارا",
+ age:24,
+ city:"تهران",
+ emoji:"👩🏻",
+ bio:"عاشق موسیقی، سفر و کافه‌های دنج. دنبال آشنایی خوب و گفت‌وگوی جذابم.",
+ tags:["موسیقی","سفر","کافه"],
+ interests:["music","travel"]
+},
 
-  {
-    name:"آرین",
-    age:26,
-    city:"اصفهان",
-    emoji:"👨🏻",
-    bio:"فیلم، عکاسی و کشف جاهای جدید. همیشه برای یک گفت‌وگوی خوب آماده‌ام.",
-    tags:["فیلم","عکاسی","کافه"]
-  },
+{
+ id:2,
+ name:"آرین",
+ age:26,
+ city:"اصفهان",
+ emoji:"👨🏻",
+ bio:"فیلم، عکاسی و کشف جاهای جدید. همیشه برای یک گفت‌وگوی خوب آماده‌ام.",
+ tags:["فیلم","عکاسی","کافه"],
+ interests:["art","travel"]
+},
 
-  {
-    name:"نیلا",
-    age:23,
-    city:"شیراز",
-    emoji:"👩🏼",
-    bio:"کتاب، هنر و موسیقی. آدم‌های صمیمی و خوش‌صحبت رو دوست دارم.",
-    tags:["کتاب","هنر","موسیقی"]
-  },
+{
+ id:3,
+ name:"نیلا",
+ age:23,
+ city:"شیراز",
+ emoji:"👩🏼",
+ bio:"کتاب، هنر و موسیقی. آدم‌های صمیمی و خوش‌صحبت رو دوست دارم.",
+ tags:["کتاب","هنر","موسیقی"],
+ interests:["music","art"]
+},
 
-  {
-    name:"پارسا",
-    age:28,
-    city:"مشهد",
-    emoji:"👨🏼",
-    bio:"ورزش، سفر و تکنولوژی. دنبال یک ارتباط واقعی و محترمانه هستم.",
-    tags:["ورزش","سفر","تکنولوژی"]
-  }
+{
+ id:4,
+ name:"پارسا",
+ age:28,
+ city:"مشهد",
+ emoji:"👨🏼",
+ bio:"ورزش، سفر و تکنولوژی. دنبال یک ارتباط واقعی و محترمانه هستم.",
+ tags:["ورزش","سفر","تکنولوژی"],
+ interests:["sport","travel","tech"]
+},
+
+{
+ id:5,
+ name:"رها",
+ age:25,
+ city:"تبریز",
+ emoji:"👩🏻‍🦰",
+ bio:"عاشق طراحی، موسیقی و شب‌های آروم. گفت‌وگوی عمیق رو دوست دارم.",
+ tags:["طراحی","موسیقی","هنر"],
+ interests:["music","art"]
+},
+
+{
+ id:6,
+ name:"کیان",
+ age:27,
+ city:"کرج",
+ emoji:"👨🏻‍🦱",
+ bio:"تکنولوژی، گیم و سفر. دنبال آدمی برای ساختن خاطره‌های خوب.",
+ tags:["گیم","تکنولوژی","سفر"],
+ interests:["tech","travel"]
+},
+
+{
+ id:7,
+ name:"آوا",
+ age:24,
+ city:"رشت",
+ emoji:"👩🏻",
+ bio:"کتاب، طبیعت و موسیقی. آرامش و آدم‌های واقعی رو دوست دارم.",
+ tags:["کتاب","طبیعت","موسیقی"],
+ interests:["music","travel"]
+},
+
+{
+ id:8,
+ name:"سام",
+ age:29,
+ city:"تهران",
+ emoji:"👨🏻",
+ bio:"ورزش، فیلم و تکنولوژی. برای آشنایی با آدم‌های جدید آماده‌ام.",
+ tags:["ورزش","فیلم","تکنولوژی"],
+ interests:["sport","tech"]
+}
 
 ];
 
 
-/* =========================
-   STATE
-========================= */
+/* =========================================
+STATE
+========================================= */
+
+const defaultState = {
+
+ index:0,
+
+ likes:[],
+
+ matches:[],
+
+ passed:[],
+
+ chats:{},
+
+ user:null,
+
+ notifications:true,
+
+ privacy:{
+   showCity:true,
+   showAge:true,
+   online:true
+ },
+
+ search:"",
+
+ filter:"all",
+
+ stats:{
+   likes:0,
+   matches:0,
+   messages:0
+ }
+
+};
+
 
 let state =
 JSON.parse(
-  localStorage.getItem("lumiState")
-  ||
-  '{"i":0,"likes":[],"chats":{},"user":null}'
+ localStorage.getItem("lumiStateV22") ||
+ JSON.stringify(defaultState)
 );
 
 
-/* =========================
-   SAVE
-========================= */
+/* =========================================
+SAVE
+========================================= */
 
 function save(){
 
-  localStorage.setItem(
-    "lumiState",
-    JSON.stringify(state)
-  );
+ localStorage.setItem(
+   "lumiStateV22",
+   JSON.stringify(state)
+ );
 
 }
 
 
-/* =========================
-   TOAST
-========================= */
+/* =========================================
+TOAST
+========================================= */
+
+let toastTimer;
 
 function toast(message){
 
-  const t =
-    document.getElementById("toast");
+ const el =
+ document.getElementById("toast");
 
-  t.innerText = message;
+ el.textContent=message;
 
-  t.classList.add("show");
+ el.classList.add("show");
 
-  setTimeout(
-    ()=>{
-      t.classList.remove("show");
-    },
-    2000
-  );
+ clearTimeout(toastTimer);
+
+ toastTimer=setTimeout(()=>{
+   el.classList.remove("show");
+ },2200);
 
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =========================================
+NAV
+========================================= */
 
 function nav(id,button){
 
-  document
-    .querySelectorAll(".page")
-    .forEach(
-      page =>
-      page.classList.remove("active")
-    );
+ document
+ .querySelectorAll(".page")
+ .forEach(p=>{
+   p.classList.remove("active");
+ });
 
-  document
-    .getElementById(id)
-    .classList.add("active");
+ const page =
+ document.getElementById(id);
 
-  document
-    .querySelectorAll(".bottom button")
-    .forEach(
-      btn =>
-      btn.classList.remove("active")
-    );
+ if(page)
+   page.classList.add("active");
 
-  button.classList.add("active");
+ document
+ .querySelectorAll(".bottom button")
+ .forEach(b=>{
+   b.classList.remove("active");
+ });
 
-  if(id==="home")
-    renderDiscover();
+ if(button)
+   button.classList.add("active");
 
-  if(id==="matches")
-    renderMatches();
-
-  if(id==="chats")
-    renderChats();
-
-  if(id==="profile")
-    renderProfile();
-
-  window.scrollTo(0,0);
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
 
 }
 
 
-/* =========================
-   DISCOVER
-========================= */
+/* =========================================
+SEARCH
+========================================= */
+
+function searchPeople(){
+
+ state.search =
+ document
+ .getElementById("searchInput")
+ .value
+ .trim()
+ .toLowerCase();
+
+ renderDiscover();
+
+}
+
+
+/* =========================================
+FILTER
+========================================= */
+
+function quickFilter(filter,button){
+
+ state.filter=filter;
+
+ document
+ .querySelectorAll(".quick-filter")
+ .forEach(b=>{
+   b.classList.remove("active");
+ });
+
+ button.classList.add("active");
+
+ renderDiscover();
+
+}
+
+
+/* =========================================
+FILTER MATCH
+========================================= */
+
+function filteredPeople(){
+
+ return people.filter(person=>{
+
+   const search =
+   state.search;
+
+   const text =
+   (
+     person.name+
+     " "+
+     person.city+
+     " "+
+     person.tags.join(" ")
+   ).toLowerCase();
+
+   const searchOK =
+   !search ||
+   text.includes(search);
+
+   const filterOK =
+   state.filter==="all" ||
+   person.interests.includes(state.filter);
+
+   return searchOK && filterOK;
+
+ });
+
+}
+
+
+/* =========================================
+DISCOVER
+========================================= */
 
 function renderDiscover(){
 
-  const box =
-    document.getElementById("discover");
+ const container =
+ document.getElementById("discover");
 
-  const counter =
-    document.getElementById("counter");
+ if(!container) return;
 
+ let available =
+ filteredPeople().filter(person=>
+   !state.passed.includes(person.id) &&
+   !state.likes.includes(person.id)
+ );
 
-  if(state.i >= people.length){
+ if(!available.length){
 
-    counter.innerText =
-      people.length +
-      " / " +
-      people.length;
+   container.innerHTML=`
 
-    box.innerHTML = `
+   <div class="empty">
 
-      <div class="box center"
-           style="padding:40px">
+     <div class="empty-icon">
+       ✨
+     </div>
 
-        <div style="font-size:48px">
-          ♡
-        </div>
+     <b>
+       نتیجه‌ای پیدا نشد
+     </b>
 
-        <h3 style="margin-top:12px">
-          فعلاً همین بود
-        </h3>
+     <p>
+       فیلتر یا جستجو رو تغییر بده.
+     </p>
 
-        <p class="muted">
-          بعداً دوباره سر بزن.
-        </p>
+     <button
+       class="secondary"
+       onclick="resetDiscover()"
+     >
+       نمایش دوباره
+     </button>
 
-      </div>
+   </div>
 
-    `;
+   `;
 
-    return;
+   document.getElementById("counter")
+     .textContent="۰ نفر";
 
-  }
+   return;
 
+ }
 
-  const p =
-    people[state.i];
+ const person =
+ available[0];
 
+ document.getElementById("counter")
+   .textContent=
+   `${available.length} نفر`;
 
-  counter.innerText =
-    (state.i + 1) +
-    " / " +
-    people.length;
+ container.innerHTML=`
 
+ <div class="person-card">
 
-  box.innerHTML = `
+   <div class="person-photo">
 
-    <div class="card discover-card">
+     <div class="photo-gradient"></div>
 
-      <div class="photo">
-        ${p.emoji}
-      </div>
+     <span style="position:relative;z-index:1">
+       ${person.emoji}
+     </span>
 
-      <div class="info">
+     <div class="online">
+       <i></i>
+       آنلاین
+     </div>
 
-        <div class="name">
-          ${p.name}، ${p.age}
-        </div>
+     <div class="photo-count">
+       ◉ ۱
+     </div>
 
-        <div class="meta">
-          📍 ${p.city}
-        </div>
-
-        <div class="bio">
-          ${p.bio}
-        </div>
-
-        <div class="tags">
-
-          ${
-            p.tags
-              .map(
-                tag =>
-                `<span class="tag">${tag}</span>`
-              )
-              .join("")
-          }
-
-        </div>
-
-      </div>
-
-    </div>
+   </div>
 
 
-    <div class="actions">
+   <div class="person-info">
 
-      <button
-        class="action pass"
-        onclick="pass()">
+     <div class="person-name">
+       ${person.name}، ${person.age}
+     </div>
 
-        ×
+     <div class="person-meta">
+       📍 ${person.city}
+     </div>
 
-      </button>
+     <div class="bio">
+       ${person.bio}
+     </div>
 
+     <div class="tags">
 
-      <button
-        class="action star"
-        onclick="superLike()">
+       ${person.tags.map(tag=>`
+         <span class="tag">
+           ${tag}
+         </span>
+       `).join("")}
 
-        ★
+     </div>
 
-      </button>
-
-
-      <button
-        class="action like"
-        onclick="like()">
-
-        ♥
-
-      </button>
-
-    </div>
-
-  `;
-
-}
+   </div>
 
 
-/* =========================
-   PASS
-========================= */
+   <div class="actions">
 
-function pass(){
+     <button
+       class="action pass"
+       onclick="pass(${person.id})"
+       title="رد"
+     >
+       ×
+     </button>
 
-  toast("پروفایل بعدی");
+     <button
+       class="action super"
+       onclick="superLike(${person.id})"
+       title="Super Like"
+     >
+       ★
+     </button>
 
-  state.i++;
+     <button
+       class="action like"
+       onclick="like(${person.id})"
+       title="پسندیدن"
+     >
+       ♥
+     </button>
 
-  save();
+   </div>
 
-  renderDiscover();
+ </div>
+
+ `;
 
 }
 
 
-/* =========================
-   LIKE
-========================= */
+/* =========================================
+PASS
+========================================= */
 
-function like(){
+function pass(id){
 
-  const p =
-    people[state.i];
+ if(!state.passed.includes(id))
+   state.passed.push(id);
 
-  if(
-    !state.likes
-      .includes(p.name)
-  ){
+ save();
 
-    state.likes.push(p.name);
+ renderDiscover();
 
-  }
-
-  save();
-
-  toast("Like فرستاده شد ♥");
-
-  state.i++;
-
-  save();
-
-  renderDiscover();
+ toast("پروفایل رد شد");
 
 }
 
 
-/* =========================
-   SUPER LIKE
-========================= */
+/* =========================================
+LIKE
+========================================= */
 
-function superLike(){
+function like(id){
 
-  const p =
-    people[state.i];
+ const person =
+ people.find(p=>p.id===id);
 
-  if(
-    !state.likes
-      .includes(p.name)
-  ){
+ if(!person) return;
 
-    state.likes.push(p.name);
+ if(!state.likes.includes(id))
+   state.likes.push(id);
 
-  }
+ state.stats.likes++;
 
-  save();
+ /*
+ Demo match:
+ هر لایک به عنوان Match ذخیره می‌شود
+ تا بخش Match و چت قابل تست باشند.
+ */
 
-  toast("Super Like فرستاده شد ★");
+ if(!state.matches.includes(id)){
 
-  state.i++;
+   state.matches.push(id);
 
-  save();
+   state.stats.matches++;
 
-  renderDiscover();
+   save();
+
+   renderDiscover();
+   renderMatches();
+   updateBadges();
+
+   setTimeout(()=>{
+     showMatch(person);
+   },200);
+
+   return;
+ }
+
+ save();
+
+ renderDiscover();
+ renderMatches();
+ updateBadges();
+
+ toast(`♥ ${person.name} پسندیده شد`);
 
 }
 
 
-/* =========================
-   MATCHES
-========================= */
+/* =========================================
+SUPER LIKE
+========================================= */
+
+function superLike(id){
+
+ const person =
+ people.find(p=>p.id===id);
+
+ if(!person) return;
+
+ if(!state.likes.includes(id))
+   state.likes.push(id);
+
+ if(!state.matches.includes(id))
+   state.matches.push(id);
+
+ state.stats.likes++;
+ state.stats.matches++;
+
+ save();
+
+ renderDiscover();
+ renderMatches();
+ updateBadges();
+
+ setTimeout(()=>{
+   showMatch(person);
+ },150);
+
+}
+
+
+/* =========================================
+RESET
+========================================= */
+
+function resetDiscover(){
+
+ state.passed=[];
+ state.likes=[];
+ state.matches=[];
+ state.index=0;
+
+ save();
+
+ renderDiscover();
+ renderMatches();
+ updateBadges();
+
+ toast("لیست دوباره شروع شد");
+
+}
+
+
+/* =========================================
+MATCHES
+========================================= */
 
 function renderMatches(){
 
-  const box =
-    document.getElementById(
-      "matchesList"
-    );
+ const container =
+ document.getElementById("matchesList");
 
+ if(!container) return;
 
-  const matches =
-    people.filter(
-      p =>
-      state.likes
-        .includes(p.name)
-    );
+ const matched =
+ people.filter(person=>
+   state.matches.includes(person.id)
+ );
 
+ if(!matched.length){
 
-  if(!matches.length){
+   container.innerHTML=`
 
-    box.innerHTML = `
+   <div class="empty">
 
-      <div class="box center"
-           style="padding:40px;grid-column:1/-1">
+     <div class="empty-icon">
+       ♡
+     </div>
 
-        <div style="font-size:45px">
-          ♡
-        </div>
+     <b>
+       هنوز Match نداری
+     </b>
 
-        <p>
-          هنوز Match نداری.
-        </p>
+     <p>
+       پروفایل‌ها رو کشف کن و
+       ارتباط جدید بساز.
+     </p>
 
-      </div>
+   </div>
 
-    `;
+   `;
 
-    return;
+   return;
+ }
 
-  }
+ container.innerHTML=`
 
+ <div class="grid">
 
-  box.innerHTML =
-    matches
-      .map(
-        p => `
+   ${matched.map(person=>`
 
-        <div
-          class="match"
-          onclick="openChat('${p.name}')">
+   <div
+     class="small-card"
+     onclick="openChat('${escapeAttr(person.name)}')"
+   >
 
-          <div class="avatar">
-            ${p.emoji}
-          </div>
+     <div class="small-photo">
+       ${person.emoji}
+     </div>
 
-          <div>
+     <div class="small-info">
 
-            <b>
-              ${p.name}
-            </b>
+       <div class="small-name">
+         ${person.name}، ${person.age}
+       </div>
 
-            <div class="muted">
-              Match شده
-            </div>
+       <div class="small-meta">
+         📍 ${person.city}
+       </div>
 
-          </div>
+     </div>
 
-        </div>
+   </div>
 
-        `
-      )
-      .join("");
+   `).join("")}
+
+ </div>
+
+ `;
 
 }
 
 
-/* =========================
-   CHAT LIST
-========================= */
+/* =========================================
+CHATS
+========================================= */
 
 function renderChats(){
 
-  const box =
-    document.getElementById(
-      "chatList"
-    );
+ const container =
+ document.getElementById("chatList");
 
+ if(!container) return;
 
-  const names =
-    Object.keys(state.chats);
+ const names =
+ Object.keys(state.chats);
 
+ if(!names.length){
 
-  if(!names.length){
+   container.innerHTML=`
 
-    box.innerHTML = `
+   <div class="empty">
 
-      <div class="box center"
-           style="padding:40px">
+     <div class="empty-icon">
+       ◌
+     </div>
 
-        <div style="font-size:40px">
-          ◌
-        </div>
+     <b>
+       هنوز چتی نداری
+     </b>
 
-        <p>
-          هنوز گفتگویی نداری.
-        </p>
+     <p>
+       از بخش Match یک نفر رو
+       برای گفتگو انتخاب کن.
+     </p>
 
-      </div>
+   </div>
 
-    `;
+   `;
 
-    return;
+   updateBadges();
 
-  }
+   return;
+ }
 
+ container.innerHTML=
+ names.map(name=>{
 
-  box.innerHTML =
-    names
-      .map(
-        name => {
+   const person =
+   people.find(p=>p.name===name);
 
-          const p =
-            people.find(
-              x =>
-              x.name === name
-            )
-            ||
-            {
-              emoji:"🙂"
-            };
+   const messages =
+   state.chats[name] || [];
 
+   const last =
+   messages[messages.length-1];
 
-          const messages =
-            state.chats[name];
+   return `
 
+   <div
+     class="chat-card"
+     onclick="openChat('${escapeAttr(name)}')"
+   >
 
-          const last =
-            messages[
-              messages.length - 1
-            ];
+     <div class="avatar">
+       ${person ? person.emoji : "👤"}
+     </div>
 
+     <div class="chat-main">
 
-          return `
+       <div class="chat-name">
+         ${name}
+       </div>
 
-            <div
-              class="chat"
-              style="margin-bottom:10px"
-              onclick="openChat('${name}')">
+       <div class="last-msg">
+         ${last ? escapeHTML(last.text) : "شروع گفتگو..."}
+       </div>
 
-              <div class="avatar">
-                ${p.emoji}
-              </div>
+     </div>
 
-              <div>
+     <div class="chat-time">
+       ${messages.length}
+     </div>
 
-                <b>
-                  ${name}
-                </b>
+   </div>
 
-                <div class="muted">
-                  ${
-                    last
-                    ? last.text
-                    : "شروع گفتگو"
-                  }
-                </div>
+   `;
 
-              </div>
+ }).join("");
 
-            </div>
-
-          `;
-
-        }
-      )
-      .join("");
+ updateBadges();
 
 }
 
 
-/* =========================
-   OPEN CHAT
-========================= */
+/* =========================================
+OPEN CHAT
+========================================= */
 
 function openChat(name){
 
-  const p =
-    people.find(
-      x =>
-      x.name === name
-    )
-    ||
-    {
-      emoji:"🙂"
-    };
+ if(!state.chats[name])
+   state.chats[name]=[];
+
+ save();
+
+ const person =
+ people.find(p=>p.name===name);
+
+ const messages =
+ state.chats[name];
+
+ openModal(`
+
+ <div class="chat-window">
+
+   <div class="chat-header">
+
+     <div class="avatar">
+       ${person ? person.emoji : "👤"}
+     </div>
+
+     <div>
+
+       <b>
+         ${escapeHTML(name)}
+       </b>
+
+       <div
+         style="
+         color:var(--success);
+         font-size:9px;
+         margin-top:3px;
+         "
+       >
+         ● آنلاین
+       </div>
+
+     </div>
+
+   </div>
 
 
-  if(!state.chats[name]){
+   <div
+     class="chat-messages"
+     id="chatMessages"
+   >
 
-    state.chats[name] = [
+     ${
+       messages.length
+       ?
+       messages.map(m=>`
 
-      {
-        mine:false,
-        text:"سلام 👋 خوش اومدی به Lumi!"
-      }
+         <div
+           class="message ${m.me ? "me":"them"}"
+         >
+           ${escapeHTML(m.text)}
+         </div>
 
-    ];
+       `).join("")
+       :
+       `
+       <div
+         style="
+         text-align:center;
+         color:var(--muted);
+         font-size:11px;
+         padding:30px;
+         line-height:2;
+         "
+       >
+         هنوز پیامی رد و بدل نشده.
+         <br>
+         اولین پیام رو تو بفرست 👋
+       </div>
+       `
+     }
 
-    save();
-
-  }
-
-
-  const messages =
-    state.chats[name];
-
-
-  document.getElementById(
-    "modalBody"
-  ).innerHTML = `
-
-    <h2>
-      ${p.emoji}
-      ${name}
-    </h2>
-
-    <div
-      class="chatbox"
-      id="chatbox">
-
-      ${
-        messages
-          .map(
-            m => `
-
-            <div
-              class="message
-              ${m.mine
-                ? "mine"
-                : "theirs"}">
-
-              ${m.text}
-
-            </div>
-
-            `
-          )
-          .join("")
-      }
-
-    </div>
+   </div>
 
 
-    <form
-      class="row"
-      style="margin-top:12px"
-      onsubmit="sendMessage(event,'${name}')">
+   <form
+     class="chat-input"
+     onsubmit="sendMessage(event,'${escapeAttr(name)}')"
+   >
 
-      <input
-        id="messageInput"
-        class="input"
-        placeholder="پیامت رو بنویس..."
-        autocomplete="off">
+     <input
+       id="messageInput"
+       placeholder="پیامت رو بنویس..."
+       autocomplete="off"
+     >
 
-      <button
-        class="primary"
-        style="margin:0;width:auto;padding:12px 20px">
+     <button class="send">
+       ➤
+     </button>
 
-        ارسال
+   </form>
 
-      </button>
+ </div>
 
-    </form>
+ `);
 
-  `;
+ setTimeout(()=>{
 
+   const box =
+   document.getElementById("chatMessages");
 
-  document
-    .getElementById("modal")
-    .classList.add("show");
+   if(box)
+     box.scrollTop=box.scrollHeight;
 
+   const input =
+   document.getElementById("messageInput");
 
-  setTimeout(
-    ()=>{
-      const chat =
-        document.getElementById(
-          "chatbox"
-        );
+   if(input)
+     input.focus();
 
-      if(chat)
-        chat.scrollTop =
-          chat.scrollHeight;
-    },
-    50
-  );
-
-}
-
-
-/* =========================
-   SEND MESSAGE
-========================= */
-
-function sendMessage(
-  event,
-  name
-){
-
-  event.preventDefault();
-
-
-  const input =
-    document.getElementById(
-      "messageInput"
-    );
-
-
-  const text =
-    input.value.trim();
-
-
-  if(!text)
-    return;
-
-
-  state.chats[name].push({
-
-    mine:true,
-
-    text:text
-
-  });
-
-
-  save();
-
-  openChat(name);
-
-  renderChats();
+ },100);
 
 }
 
 
-/* =========================
-   PROFILE
-========================= */
+/* =========================================
+SEND
+========================================= */
+
+function sendMessage(event,name){
+
+ event.preventDefault();
+
+ const input =
+ document.getElementById("messageInput");
+
+ if(!input) return;
+
+ const text =
+ input.value.trim();
+
+ if(!text) return;
+
+ if(!state.chats[name])
+   state.chats[name]=[];
+
+ state.chats[name].push({
+   text:text,
+   me:true,
+   time:Date.now()
+ });
+
+ state.stats.messages++;
+
+ save();
+
+ input.value="";
+
+ renderChats();
+
+ openChat(name);
+
+ setTimeout(()=>{
+
+   const replies=[
+     "چه خوب 😊",
+     "آره، موافقم!",
+     "جالبه 😄",
+     "منم همین حس رو دارم.",
+     "خوشحال شدم پیام دادی ❤️",
+     "بیشتر برام تعریف کن.",
+     "راستی امروز چطور گذشت؟"
+   ];
+
+   const reply=
+   replies[
+     Math.floor(
+       Math.random()*replies.length
+     )
+   ];
+
+   state.chats[name].push({
+     text:reply,
+     me:false,
+     time:Date.now()
+   });
+
+   save();
+
+   renderChats();
+
+   openChat(name);
+
+ },1000);
+
+}
+
+
+/* =========================================
+PROFILE
+========================================= */
 
 function renderProfile(){
 
-  const box =
-    document.getElementById(
-      "myProfile"
-    );
+ const container =
+ document.getElementById("myProfile");
+
+ if(!container) return;
+
+ if(!state.user){
+
+   container.innerHTML=`
+
+   <div class="empty">
+
+     <div class="empty-icon">
+       ◎
+     </div>
+
+     <b>
+       پروفایلت رو بساز
+     </b>
+
+     <p>
+       برای استفاده کامل از Lumi
+       یک پروفایل بساز.
+     </p>
+
+     <button
+       class="primary"
+       onclick="openAuth()"
+     >
+       ✨ ساخت پروفایل
+     </button>
+
+   </div>
+
+   `;
+
+   updateSettingToggles();
+
+   return;
+
+ }
 
 
-  if(!state.user){
+ const user =
+ state.user;
 
-    box.innerHTML = `
+ const likes =
+ state.stats.likes;
 
-      <div class="box center"
-           style="padding:35px">
+ const matches =
+ state.matches.length;
 
-        <div style="font-size:45px">
-          ◯
-        </div>
-
-        <h3 style="margin-top:12px">
-          هنوز حساب نداری
-        </h3>
-
-        <p class="muted">
-          برای ساخت پروفایل ثبت‌نام کن.
-        </p>
-
-        <button
-          class="primary"
-          onclick="openAuth()">
-
-          ثبت‌نام
-
-        </button>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
+ const messages =
+ state.stats.messages;
 
 
-  const u =
-    state.user;
+ container.innerHTML=`
+
+ <div class="profile-cover">
+
+   <button
+     class="profile-cover-edit"
+     onclick="openPhotoPicker()"
+   >
+     ✎
+   </button>
+
+   <div class="profile-avatar-large">
+     ${user.emoji || "👤"}
+   </div>
+
+ </div>
 
 
-  box.innerHTML = `
+ <div class="profile-content">
 
-    <div class="box profile-box">
+   <div class="profile-name">
+     ${escapeHTML(user.name)}
+     ${user.age ? `، ${user.age}` : ""}
+   </div>
 
-      <div class="profile-head">
+   <div class="profile-city">
+     📍 ${escapeHTML(user.city || "شهر ثبت نشده")}
+   </div>
 
-        <div class="avatar">
-          ${u.emoji || "◯"}
-        </div>
-
-        <div>
-
-          <h3>
-            ${u.name}، ${u.age}
-          </h3>
-
-          <p class="muted">
-            📍 ${u.city}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="bio">
-
-        ${
-          u.bio ||
-          "هنوز چیزی درباره خودت ننوشتی."
-        }
-
-      </div>
+   ${
+     user.bio
+     ?
+     `
+     <div class="profile-bio">
+       ${escapeHTML(user.bio)}
+     </div>
+     `
+     :
+     `
+     <div
+       class="profile-bio"
+       style="color:var(--muted)"
+     >
+       هنوز چیزی درباره خودت ننوشتی.
+     </div>
+     `
+   }
 
 
-      <div class="tags">
+   <div class="tags">
 
-        ${
-          (u.tags || [])
-          .map(
-            x =>
-            `<span class="tag">${x}</span>`
-          )
-          .join("")
-        }
+     ${(user.tags || []).map(tag=>`
+       <span class="tag">
+         ${escapeHTML(tag)}
+       </span>
+     `).join("")}
 
-      </div>
+   </div>
 
 
-      <button
-        class="primary"
-        onclick="openEdit()">
+   <div class="profile-stats">
 
-        ویرایش پروفایل
+     <div class="stat">
+       <strong>${likes}</strong>
+       <span>پسندیدن</span>
+     </div>
 
-      </button>
+     <div class="stat">
+       <strong>${matches}</strong>
+       <span>Match</span>
+     </div>
 
-    </div>
+     <div class="stat">
+       <strong>${messages}</strong>
+       <span>پیام</span>
+     </div>
 
-  `;
+   </div>
+
+ </div>
+
+ `;
+
+ updateSettingToggles();
 
 }
 
 
-/* =========================
-   AUTH
-========================= */
+/* =========================================
+AUTH
+========================================= */
 
 function handleAuth(){
 
-  if(state.user){
+ if(state.user){
 
-    nav(
-      "profile",
-      document.querySelectorAll(
-        ".bottom button"
-      )[3]
-    );
+   nav(
+     "profile",
+     document.querySelectorAll(".bottom button")[3]
+   );
 
-  }
-  else{
+ }else{
 
-    openAuth();
+   openAuth();
 
-  }
+ }
 
 }
 
+
+/* =========================================
+OPEN AUTH
+========================================= */
 
 function openAuth(){
 
-  document.getElementById(
-    "modalBody"
-  ).innerHTML = `
+ openModal(`
 
-    <h2>
-      ثبت‌نام در Lumi
-    </h2>
+ <div class="form-title">
+   خوش اومدی به Lumi ✨
+ </div>
 
-    <p class="muted">
-      برای نسخه فعلی، اطلاعات فقط روی
-      همین دستگاه ذخیره می‌شود.
-    </p>
-
-
-    <div class="form">
-
-      <input
-        id="name"
-        class="input"
-        placeholder="نام">
+ <p
+   style="
+   color:var(--muted);
+   font-size:12px;
+   line-height:1.9;
+   margin-bottom:18px;
+   "
+ >
+   اطلاعات اولیه پروفایلت رو وارد کن.
+ </p>
 
 
-      <div class="row">
+ <div class="field">
 
-        <input
-          id="age"
-          class="input"
-          type="number"
-          placeholder="سن">
+   <label>
+     نام
+   </label>
 
+   <input
+     id="authName"
+     placeholder="مثلاً مهراد"
+   >
 
-        <input
-          id="city"
-          class="input"
-          placeholder="شهر">
-
-      </div>
+ </div>
 
 
-      <input
-        id="email"
-        class="input"
-        type="email"
-        placeholder="ایمیل">
+ <div class="field">
+
+   <label>
+     سن
+   </label>
+
+   <input
+     id="authAge"
+     type="number"
+     min="18"
+     max="99"
+     placeholder="۲۵"
+   >
+
+ </div>
 
 
-      <input
-        id="password"
-        class="input"
-        type="password"
-        placeholder="رمز عبور">
+ <div class="field">
+
+   <label>
+     شهر
+   </label>
+
+   <input
+     id="authCity"
+     placeholder="تهران"
+   >
+
+ </div>
 
 
-      <button
-        class="primary"
-        onclick="signup()">
+ <button
+   class="primary"
+   onclick="signup()"
+ >
+   ادامه
+ </button>
 
-        ساخت حساب
-
-      </button>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("modal")
-    .classList.add("show");
+ `);
 
 }
 
 
-/* =========================
-   SIGN UP
-========================= */
+/* =========================================
+SIGN UP
+========================================= */
 
 function signup(){
 
-  const name =
-    document
-      .getElementById("name")
-      .value.trim();
+ const name =
+ document.getElementById("authName")
+ .value.trim();
 
+ const age =
+ document.getElementById("authAge")
+ .value.trim();
 
-  const age =
-    Number(
-      document
-        .getElementById("age")
-        .value
-    );
+ const city =
+ document.getElementById("authCity")
+ .value.trim();
 
+ if(!name){
 
-  const city =
-    document
-      .getElementById("city")
-      .value.trim();
+   toast("نامت رو وارد کن");
 
+   return;
 
-  const email =
-    document
-      .getElementById("email")
-      .value.trim();
+ }
 
+ if(age && Number(age)<18){
 
-  const password =
-    document
-      .getElementById("password")
-      .value;
+   toast("سن باید حداقل ۱۸ سال باشد");
 
+   return;
 
-  if(
-    !name ||
-    !city ||
-    !email ||
-    !password ||
-    age < 18
-  ){
+ }
 
-    toast(
-      "اطلاعات رو کامل وارد کن؛ سن باید ۱۸+ باشه."
-    );
+ state.user={
+   name:name,
+   age:age,
+   city:city || "نامشخص",
+   emoji:"👤",
+   bio:"",
+   tags:[]
+ };
 
-    return;
+ save();
 
-  }
+ closeModal();
 
+ updateAuthButton();
 
-  state.user = {
+ renderProfile();
 
-    name:name,
-
-    age:age,
-
-    city:city,
-
-    email:email,
-
-    password:password,
-
-    bio:"",
-
-    tags:[],
-
-    emoji:"😎"
-
-  };
-
-
-  save();
-
-
-  closeModal();
-
-  updateAuthButton();
-
-  renderProfile();
-
-
-  toast(
-    "حساب ساخته شد ♥"
-  );
+ toast("پروفایل ساخته شد ✨");
 
 }
 
 
-/* =========================
-   EDIT PROFILE
-========================= */
+/* =========================================
+EDIT PROFILE
+========================================= */
 
 function openEdit(){
 
-  if(!state.user){
+ if(!state.user){
 
-    openAuth();
+   openAuth();
 
-    return;
+   return;
 
-  }
+ }
 
+ const user =
+ state.user;
 
-  const u =
-    state.user;
+ openModal(`
 
-
-  document.getElementById(
-    "modalBody"
-  ).innerHTML = `
-
-    <h2>
-      ویرایش پروفایل
-    </h2>
+ <div class="form-title">
+   ✎ ویرایش پروفایل
+ </div>
 
 
-    <div class="form">
+ <div class="field">
 
-      <input
-        id="editName"
-        class="input"
-        value="${u.name}"
-        placeholder="نام">
+   <label>
+     نام
+   </label>
 
+   <input
+     id="editName"
+     value="${escapeAttr(user.name || "")}"
+   >
 
-      <input
-        id="editCity"
-        class="input"
-        value="${u.city}"
-        placeholder="شهر">
+ </div>
 
 
-      <textarea
-        id="editBio"
-        rows="4"
-        placeholder="درباره خودت..."
-      >${u.bio || ""}</textarea>
+ <div class="field">
+
+   <label>
+     سن
+   </label>
+
+   <input
+     id="editAge"
+     type="number"
+     min="18"
+     max="99"
+     value="${escapeAttr(user.age || "")}"
+   >
+
+ </div>
 
 
-      <input
-        id="editTags"
-        class="input"
-        value="${(u.tags || []).join(", ")}"
-        placeholder="علایق: موسیقی، سفر، فیلم">
+ <div class="field">
+
+   <label>
+     شهر
+   </label>
+
+   <input
+     id="editCity"
+     value="${escapeAttr(user.city || "")}"
+   >
+
+ </div>
 
 
-      <button
-        class="primary"
-        onclick="saveProfile()">
+ <div class="field">
 
-        ذخیره تغییرات
+   <label>
+     درباره من
+   </label>
 
-      </button>
+   <textarea
+     id="editBio"
+     placeholder="کمی درباره خودت بنویس..."
+   >${escapeHTML(user.bio || "")}</textarea>
 
-    </div>
-
-  `;
+ </div>
 
 
-  document
-    .getElementById("modal")
-    .classList.add("show");
+ <div class="field">
+
+   <label>
+     علایق
+   </label>
+
+   <input
+     id="editTags"
+     value="${escapeAttr((user.tags || []).join(", "))}"
+     placeholder="موسیقی، سفر، فیلم"
+   >
+
+ </div>
+
+
+ <button
+   class="primary"
+   onclick="saveProfile()"
+ >
+   ✓ ذخیره تغییرات
+ </button>
+
+ `);
 
 }
 
 
-/* =========================
-   SAVE PROFILE
-========================= */
+/* =========================================
+SAVE PROFILE
+========================================= */
 
 function saveProfile(){
 
-  state.user.name =
-    document
-      .getElementById("editName")
-      .value.trim();
+ const name =
+ document.getElementById("editName")
+ .value.trim();
 
+ const age =
+ document.getElementById("editAge")
+ .value.trim();
 
-  state.user.city =
-    document
-      .getElementById("editCity")
-      .value.trim();
+ const city =
+ document.getElementById("editCity")
+ .value.trim();
 
+ const bio =
+ document.getElementById("editBio")
+ .value.trim();
 
-  state.user.bio =
-    document
-      .getElementById("editBio")
-      .value.trim();
+ const tags =
+ document.getElementById("editTags")
+ .value
+ .split(",")
+ .map(x=>x.trim())
+ .filter(Boolean);
 
+ if(!name){
 
-  state.user.tags =
-    document
-      .getElementById("editTags")
-      .value
-      .split(",")
-      .map(x=>x.trim())
-      .filter(Boolean);
+   toast("نام نمی‌تواند خالی باشد");
 
+   return;
 
-  save();
+ }
 
-  closeModal();
+ if(age && Number(age)<18){
 
-  renderProfile();
+   toast("سن باید حداقل ۱۸ سال باشد");
 
-  toast(
-    "پروفایل ذخیره شد"
-  );
+   return;
+
+ }
+
+ state.user={
+   ...state.user,
+   name:name,
+   age:age,
+   city:city || "نامشخص",
+   bio:bio,
+   tags:tags
+ };
+
+ save();
+
+ closeModal();
+
+ renderProfile();
+
+ updateAuthButton();
+
+ toast("پروفایل با موفقیت ذخیره شد ✓");
 
 }
 
 
-/* =========================
-   DARK MODE
-========================= */
+/* =========================================
+PHOTO PICKER
+========================================= */
+
+function openPhotoPicker(){
+
+ const emojis=[
+   "👤",
+   "🙂",
+   "😎",
+   "🤍",
+   "🖤",
+   "🌙",
+   "✨",
+   "🌸",
+   "🦋",
+   "🔥",
+   "🎧",
+   "🎨"
+ ];
+
+ openModal(`
+
+ <div class="form-title">
+   ◉ عکس پروفایل
+ </div>
+
+ <p
+   style="
+   color:var(--muted);
+   font-size:11px;
+   line-height:1.8;
+   margin-bottom:15px;
+   "
+ >
+   برای نسخه دمو می‌تونی یک آواتار انتخاب کنی.
+ </p>
+
+ <div
+   style="
+   display:grid;
+   grid-template-columns:repeat(4,1fr);
+   gap:9px;
+   "
+ >
+
+ ${emojis.map(emoji=>`
+
+   <button
+     onclick="selectAvatar('${emoji}')"
+     style="
+     height:65px;
+     border-radius:17px;
+     background:var(--soft);
+     font-size:29px;
+     "
+   >
+     ${emoji}
+   </button>
+
+ `).join("")}
+
+ </div>
+
+ `);
+
+}
+
+
+/* =========================================
+SELECT AVATAR
+========================================= */
+
+function selectAvatar(emoji){
+
+ if(!state.user){
+
+   closeModal();
+
+   openAuth();
+
+   return;
+
+ }
+
+ state.user.emoji=emoji;
+
+ save();
+
+ closeModal();
+
+ renderProfile();
+
+ toast("آواتار تغییر کرد ✓");
+
+}
+
+
+/* =========================================
+NOTIFICATIONS
+========================================= */
+
+function toggleNotifications(){
+
+ state.notifications =
+ !state.notifications;
+
+ save();
+
+ updateSettingToggles();
+
+ toast(
+   state.notifications
+   ? "اعلان‌ها روشن شد 🔔"
+   : "اعلان‌ها خاموش شد"
+ );
+
+}
+
+
+function openNotifications(){
+
+ openModal(`
+
+ <div class="form-title">
+   ♢ اعلان‌ها
+ </div>
+
+ <div
+   style="
+   text-align:center;
+   padding:20px 5px;
+   "
+ >
+
+   <div style="font-size:48px">
+     ${state.notifications ? "🔔" : "🔕"}
+   </div>
+
+   <h3 style="margin:12px 0 7px">
+     اعلان‌های Lumi
+   </h3>
+
+   <p
+     style="
+     color:var(--muted);
+     font-size:11px;
+     line-height:1.9;
+     "
+   >
+     ${
+       state.notifications
+       ?
+       "اعلان‌ها برای حساب شما فعال هستند."
+       :
+       "اعلان‌ها برای حساب شما خاموش هستند."
+     }
+   </p>
+
+   <button
+     class="primary"
+     onclick="toggleNotifications();closeModal()"
+   >
+     ${
+       state.notifications
+       ? "خاموش کردن"
+       : "روشن کردن"
+     }
+   </button>
+
+ </div>
+
+ `);
+
+}
+
+
+/* =========================================
+DARK MODE
+========================================= */
 
 function toggleDark(){
 
-  document.body.classList.toggle(
-    "dark"
-  );
+ document.body.classList.toggle("dark");
 
+ const enabled =
+ document.body.classList.contains("dark");
 
-  localStorage.setItem(
-    "lumiDark",
-    document.body.classList.contains(
-      "dark"
-    )
-  );
+ localStorage.setItem(
+   "lumiDarkV22",
+   enabled
+ );
 
+ updateSettingToggles();
 
-  toast(
-    document.body.classList.contains(
-      "dark"
-    )
-    ? "حالت تاریک"
-    : "حالت روشن"
-  );
+ toast(
+   enabled
+   ? "حالت تاریک فعال شد 🌙"
+   : "حالت روشن فعال شد ☀️"
+ );
 
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* =========================================
+PRIVACY
+========================================= */
+
+function openPrivacy(){
+
+ const p =
+ state.privacy;
+
+ openModal(`
+
+ <div class="form-title">
+   ◇ حریم خصوصی
+ </div>
+
+ <p
+   style="
+   color:var(--muted);
+   font-size:11px;
+   line-height:1.9;
+   margin-bottom:15px;
+   "
+ >
+   کنترل کن چه اطلاعاتی در پروفایلت نمایش داده شود.
+ </p>
+
+
+ <div class="option-row">
+
+   <button
+     class="option ${p.showAge ? "selected":""}"
+     onclick="togglePrivacy('showAge')"
+   >
+     🎂 نمایش سن
+     <span style="float:left">
+       ${p.showAge ? "✓":"○"}
+     </span>
+   </button>
+
+
+   <button
+     class="option ${p.showCity ? "selected":""}"
+     onclick="togglePrivacy('showCity')"
+   >
+     📍 نمایش شهر
+     <span style="float:left">
+       ${p.showCity ? "✓":"○"}
+     </span>
+   </button>
+
+
+   <button
+     class="option ${p.online ? "selected":""}"
+     onclick="togglePrivacy('online')"
+   >
+     ● نمایش وضعیت آنلاین
+     <span style="float:left">
+       ${p.online ? "✓":"○"}
+     </span>
+   </button>
+
+ </div>
+
+
+ <button
+   class="primary"
+   onclick="closeModal()"
+ >
+   ذخیره
+ </button>
+
+ `);
+
+}
+
+
+function togglePrivacy(key){
+
+ state.privacy[key]=
+ !state.privacy[key];
+
+ save();
+
+ openPrivacy();
+
+ renderProfile();
+
+}
+
+
+/* =========================================
+HELP
+========================================= */
+
+function openHelp(){
+
+ openModal(`
+
+ <div class="form-title">
+   ? راهنمای Lumi
+ </div>
+
+
+ <div class="option-row">
+
+   <button
+     class="option"
+     onclick="showHelp('discover')"
+   >
+     🔎 چطور آدم‌های جدید پیدا کنم؟
+   </button>
+
+   <button
+     class="option"
+     onclick="showHelp('like')"
+   >
+     ❤️ Like و Match چطور کار می‌کنند؟
+   </button>
+
+   <button
+     class="option"
+     onclick="showHelp('chat')"
+   >
+     💬 چطور چت کنم؟
+   </button>
+
+   <button
+     class="option"
+     onclick="showHelp('privacy')"
+   >
+     🔒 اطلاعات من کجا ذخیره می‌شود؟
+   </button>
+
+ </div>
+
+ `);
+
+}
+
+
+function showHelp(type){
+
+ let title="";
+ let text="";
+
+ if(type==="discover"){
+
+   title="🔎 کشف افراد";
+
+   text=
+   "در صفحه اصلی می‌تونی افراد مختلف رو ببینی، جستجو کنی و با فیلترهای علاقه‌مندی نتایج رو محدود کنی.";
+
+ }
+
+ if(type==="like"){
+
+   title="❤️ Like و Match";
+
+   text=
+   "با ♥ یک پروفایل رو پسند می‌کنی و با ★ می‌تونی Super Like بزنی. در این نسخه دمو Match برای تست امکانات فعال می‌شود.";
+
+ }
+
+ if(type==="chat"){
+
+   title="💬 چت";
+
+   text=
+   "بعد از Match می‌تونی وارد بخش Match بشی و با انتخاب یک نفر، گفت‌وگو رو شروع کنی.";
+
+ }
+
+ if(type==="privacy"){
+
+   title="🔒 حریم خصوصی";
+
+   text=
+   "این نسخه Lumi یک نسخه نمایشی است. اطلاعات آن در localStorage مرورگر همین دستگاه ذخیره می‌شود و هنوز به سرور واقعی متصل نیست.";
+
+ }
+
+ openModal(`
+
+ <div class="form-title">
+   ${title}
+ </div>
+
+ <p
+   style="
+   color:var(--muted);
+   font-size:12px;
+   line-height:2;
+   "
+ >
+   ${text}
+ </p>
+
+ <button
+   class="primary"
+   onclick="openHelp()"
+ >
+   بازگشت
+ </button>
+
+ `);
+
+}
+
+
+/* =========================================
+REPORT
+========================================= */
+
+function openReport(){
+
+ openModal(`
+
+ <div class="form-title">
+   ! گزارش مشکل
+ </div>
+
+ <div class="field">
+
+   <label>
+     موضوع
+   </label>
+
+   <select id="reportType">
+
+     <option>
+       مشکل فنی
+     </option>
+
+     <option>
+       مشکل پروفایل
+     </option>
+
+     <option>
+       گزارش کاربر
+     </option>
+
+     <option>
+       پیشنهاد برای Lumi
+     </option>
+
+   </select>
+
+ </div>
+
+
+ <div class="field">
+
+   <label>
+     توضیحات
+   </label>
+
+   <textarea
+     id="reportText"
+     placeholder="مشکل یا پیشنهادت رو بنویس..."
+   ></textarea>
+
+ </div>
+
+
+ <button
+   class="primary"
+   onclick="submitReport()"
+ >
+   ارسال گزارش
+ </button>
+
+ `);
+
+}
+
+
+function submitReport(){
+
+ const text =
+ document.getElementById("reportText")
+ .value.trim();
+
+ if(!text){
+
+   toast("توضیحات رو وارد کن");
+
+   return;
+
+ }
+
+ closeModal();
+
+ toast("گزارش شما ثبت شد ✓");
+
+}
+
+
+/* =========================================
+FILTER MODAL
+========================================= */
+
+function openFilters(){
+
+ openModal(`
+
+ <div class="form-title">
+   ⚙ فیلترها
+ </div>
+
+
+ <div class="field">
+
+   <label>
+     شهر
+   </label>
+
+   <input
+     id="filterCity"
+     placeholder="مثلاً تهران"
+   >
+
+ </div>
+
+
+ <div class="field">
+
+   <label>
+     حداکثر سن
+   </label>
+
+   <input
+     id="filterAge"
+     type="number"
+     min="18"
+     max="100"
+     placeholder="مثلاً ۳۰"
+   >
+
+ </div>
+
+
+ <button
+   class="primary"
+   onclick="applyFilters()"
+ >
+   اعمال فیلتر
+ </button>
+
+
+ <button
+   class="secondary"
+   onclick="clearFilters()"
+ >
+   پاک کردن فیلترها
+ </button>
+
+ `);
+
+}
+
+
+function applyFilters(){
+
+ const city =
+ document.getElementById("filterCity")
+ .value
+ .trim()
+ .toLowerCase();
+
+ const age =
+ Number(
+   document.getElementById("filterAge").value
+ );
+
+ state.extraFilter={
+   city:city,
+   age:age || 0
+ };
+
+ save();
+
+ closeModal();
+
+ renderDiscover();
+
+ toast("فیلترها اعمال شدند ✓");
+
+}
+
+
+/* =========================================
+CLEAR FILTER
+========================================= */
+
+function clearFilters(){
+
+ state.extraFilter={
+   city:"",
+   age:0
+ };
+
+ state.search="";
+ state.filter="all";
+
+ const search =
+ document.getElementById("searchInput");
+
+ if(search)
+   search.value="";
+
+ document
+ .querySelectorAll(".quick-filter")
+ .forEach((b,i)=>{
+   b.classList.toggle("active",i===0);
+ });
+
+ save();
+
+ closeModal();
+
+ renderDiscover();
+
+ toast("فیلترها پاک شدند");
+
+}
+
+
+/* =========================================
+BADGES
+========================================= */
+
+function updateBadges(){
+
+ const matchBadge =
+ document.getElementById("matchBadge");
+
+ const chatBadge =
+ document.getElementById("chatBadge");
+
+ if(matchBadge){
+
+   const count =
+   state.matches.length;
+
+   matchBadge.textContent=count;
+
+   matchBadge.style.display=
+   count ? "flex":"none";
+
+ }
+
+ if(chatBadge){
+
+   const count =
+   Object.keys(state.chats).length;
+
+   chatBadge.textContent=count;
+
+   chatBadge.style.display=
+   count ? "flex":"none";
+
+ }
+
+}
+
+
+/* =========================================
+MATCH POPUP
+========================================= */
+
+let currentMatch=null;
+
+function showMatch(person){
+
+ currentMatch=person;
+
+ document.getElementById("matchText")
+ .textContent=
+ `شما و ${person.name} همدیگه رو پسندیدید.`;
+
+ document
+ .getElementById("matchOverlay")
+ .classList.add("show");
+
+}
+
+
+function closeMatch(){
+
+ document
+ .getElementById("matchOverlay")
+ .classList.remove("show");
+
+ currentMatch=null;
+
+}
+
+
+function startMatchChat(){
+
+ if(!currentMatch){
+
+   closeMatch();
+
+   return;
+
+ }
+
+ const name=
+ currentMatch.name;
+
+ closeMatch();
+
+ nav(
+   "chats",
+   document.querySelectorAll(".bottom button")[2]
+ );
+
+ setTimeout(()=>{
+   openChat(name);
+ },200);
+
+}
+
+
+/* =========================================
+LOGOUT
+========================================= */
 
 function logout(){
 
-  state.user = null;
+ if(!state.user){
 
-  save();
+   toast("وارد حساب نشده‌ای");
 
-  updateAuthButton();
+   return;
 
-  renderProfile();
+ }
 
-  toast(
-    "از حساب خارج شدی"
-  );
+ openModal(`
+
+ <div class="form-title">
+   خروج از حساب
+ </div>
+
+ <p
+   style="
+   color:var(--muted);
+   font-size:12px;
+   line-height:2;
+   "
+ >
+   مطمئنی می‌خوای از حساب Lumi خارج بشی؟
+ </p>
+
+ <button
+   class="danger-btn"
+   onclick="confirmLogout()"
+ >
+   خروج از حساب
+ </button>
+
+ <button
+   class="secondary"
+   onclick="closeModal()"
+ >
+   انصراف
+ </button>
+
+ `);
 
 }
 
 
-/* =========================
-   MODAL
-========================= */
+function confirmLogout(){
 
-function closeModal(){
+ state.user=null;
 
-  document
-    .getElementById("modal")
-    .classList.remove("show");
+ save();
+
+ closeModal();
+
+ updateAuthButton();
+
+ renderProfile();
+
+ toast("از حساب خارج شدی");
+
+ nav(
+   "home",
+   document.querySelectorAll(".bottom button")[0]
+ );
 
 }
 
 
-/* =========================
-   AUTH BUTTON
-========================= */
+/* =========================================
+AUTH BUTTON
+========================================= */
 
 function updateAuthButton(){
 
-  document.getElementById(
-    "authBtn"
-  ).innerText =
-    state.user
-    ? "حساب من"
-    : "ورود";
+ const btn =
+ document.getElementById("authBtn");
+
+ if(!btn) return;
+
+ btn.textContent=
+ state.user
+ ? "پروفایل"
+ : "ورود";
 
 }
 
 
-/* =========================
-   START
-========================= */
+/* =========================================
+MODAL
+========================================= */
+
+function openModal(content){
+
+ const modal =
+ document.getElementById("modal");
+
+ const body =
+ document.getElementById("modalBody");
+
+ body.innerHTML=content;
+
+ modal.classList.add("show");
+
+}
+
+
+function closeModal(){
+
+ document
+ .getElementById("modal")
+ .classList.remove("show");
+
+}
+
+
+document
+.getElementById("modal")
+.addEventListener(
+ "click",
+ function(e){
+
+   if(e.target===this)
+     closeModal();
+
+ }
+);
+
+
+/* =========================================
+ESCAPE
+========================================= */
+
+function escapeHTML(value){
+
+ return String(value)
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+ return escapeHTML(value);
+
+}
+
+
+/* =========================================
+SETTING TOGGLES
+========================================= */
+
+function updateSettingToggles(){
+
+ const dark =
+ document
+ .getElementById("darkToggle");
+
+ const notification =
+ document
+ .getElementById("notificationToggle");
+
+ if(dark){
+
+   const isDark =
+   document.body.classList.contains("dark");
+
+   dark.classList.toggle(
+     "on",
+     isDark
+   );
+
+ }
+
+ if(notification){
+
+   notification.classList.toggle(
+     "on",
+     state.notifications
+   );
+
+ }
+
+}
+
+
+/* =========================================
+LOAD DARK
+========================================= */
 
 if(
-  localStorage.getItem(
-    "lumiDark"
-  ) === "true"
+ localStorage.getItem("lumiDarkV22")==="true"
 ){
 
-  document.body.classList.add(
-    "dark"
-  );
+ document.body.classList.add("dark");
 
 }
 
+
+/* =========================================
+DEFAULT EXTRA FILTER
+========================================= */
+
+if(!state.extraFilter){
+
+ state.extraFilter={
+   city:"",
+   age:0
+ };
+
+}
+
+
+/* =========================================
+PATCH FILTERED PEOPLE
+========================================= */
+
+const originalFilteredPeople =
+filteredPeople;
+
+filteredPeople=function(){
+
+ return people.filter(person=>{
+
+   const search=
+   state.search || "";
+
+   const text=
+   (
+     person.name+
+     " "+
+     person.city+
+     " "+
+     person.tags.join(" ")
+   ).toLowerCase();
+
+   const searchOK=
+   !search ||
+   text.includes(search);
+
+   const filterOK=
+   state.filter==="all" ||
+   person.interests.includes(state.filter);
+
+   const city=
+   state.extraFilter?.city || "";
+
+   const age=
+   state.extraFilter?.age || 0;
+
+   const cityOK=
+   !city ||
+   person.city.toLowerCase().includes(city);
+
+   const ageOK=
+   !age ||
+   person.age<=age;
+
+   return(
+     searchOK &&
+     filterOK &&
+     cityOK &&
+     ageOK
+   );
+
+ });
+
+};
+
+
+/* =========================================
+INIT
+========================================= */
 
 updateAuthButton();
 
@@ -2058,7 +4259,11 @@ renderChats();
 
 renderProfile();
 
+updateBadges();
+
+updateSettingToggles();
+
 </script>
 
 </body>
-</html>
+  </html>
